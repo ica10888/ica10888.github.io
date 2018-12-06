@@ -57,6 +57,7 @@ Gogs 作为代码仓库。
 
 deployment.yaml
 
+``` yaml
         resources:
           limits:
             cpu: {{ .Values.resources.limits.limitscpu }}
@@ -64,6 +65,8 @@ deployment.yaml
           requests:
             cpu: {{ .Values.resources.requests.requestscpu }}
             memory: {{ .Values.resources.requests.requestsmemory }}
+```
+
 其中 limits 表示**资源限额**，既限制应用使用的资源限制； requests 表示 **资源调度** ，即 kubernetes 集群根据这个参数将决定将这个应用分配到哪个有剩余资源 Node上 。requests 是按照 limits 以一个比例 （小于接近于1）写入的。
 
 #### maven
