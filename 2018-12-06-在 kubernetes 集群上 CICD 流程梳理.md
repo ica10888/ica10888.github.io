@@ -208,11 +208,12 @@ readinessProbe: kubernetes认为该pod是启动成功的
 
   timeoutSeconds: 超时时间，超过时间就会自动重启
 
-#### 参考：
+#### 参考
 
 如何理解持续集成、持续交付、持续部署  https://www.zhihu.com/question/23444990
 
 X 战警降临，Jenkins X 正式发布  https://cloud.tencent.com/developer/article/1100256
+
 聊聊你可能误解的Kubernetes Deployment滚动更新机制  https://blog.csdn.net/WaltonWang/article/details/77461697?locationNum=5&fps=1
 
 
