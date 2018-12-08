@@ -7,9 +7,9 @@ author:     ica10888
 catalog: true
 tags:
     - kubernetes
-    - 持续集成/持续发布
+    - 持续集成
     - CI/CD
-    - jenkins-X
+    - jenkinsX
 ---
 
 
@@ -156,7 +156,6 @@ charts
 
 9. 滚动发布到生产环境。
 
-   
 
 ##### 滚动发布
 
