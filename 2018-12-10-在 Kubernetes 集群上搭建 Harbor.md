@@ -36,7 +36,7 @@ externalURL: https://core.harbor.172.16.20.63.nip.io
 
 
 
-##### 直接 push/pull 镜像
+##### 节点上 push/pull 镜像
 
 在同一内网下 push/pull 镜像。
 
