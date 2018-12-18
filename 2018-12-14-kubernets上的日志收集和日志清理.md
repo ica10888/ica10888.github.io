@@ -333,7 +333,7 @@ outputs:
 
 ##### Elasticsearch
 
-helm/charts 官方提供了一个可以实现高可用的实现方案。**至少需要 2个 elasticsearch-master ，1个 elasticsearch-client ，1个 elasticsearch-data**  ，其中将 elasticsearch-data 挂载在阿里云的OSS上。网上也有很多单例的 Elasticsearch 实现，这里就不列出来了。
+helm/charts 官方提供了一个可以实现高可用的实现方案。**至少需要 2个 elasticsearch-master ，1个 elasticsearch-client ，1个 elasticsearch-data**  。helm/charts 提供的是oss版本的，建议找其他的高可用方案。
 
 ##### Kibana&logtrail
 
