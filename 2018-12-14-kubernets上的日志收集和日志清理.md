@@ -333,7 +333,13 @@ outputs:
 
 ##### Elasticsearch
 
-helm/charts 官方提供了一个可以实现高可用的实现方案。**至少需要 2个 elasticsearch-master ，1个 elasticsearch-client ，1个 elasticsearch-data**  。helm/charts 提供的是oss版本的，建议找其他的高可用方案。
+helm/charts 官方提供了一个可以实现高可用的实现方案。**至少需要 2个 elasticsearch-master ，1个 elasticsearch-client ，1个 elasticsearch-data**  。helm/charts 提供的是oss版本的，需要修改镜像。
+
+将 `docker.elastic.co/elasticsearch/elasticsearch-oss` 改成 `docker.elastic.co/elasticsearch/elasticsearch`
+
+其中 `pvc` `data-es-elasticsearch-data-0 ` 挂载的 pv 因为是非 root 用户执行的启动脚本。在对应路径下没有权限执行，无法初始化。
+
+需要 `chmod -R 777 pv的路径` 给予权限。
 
 ##### Kibana&logtrail
 
