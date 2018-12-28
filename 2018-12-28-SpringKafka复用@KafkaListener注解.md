@@ -6,6 +6,7 @@ date:       2018-12-28
 author:     ica10888
 catalog: true
 tags:
+    - java
     - Spring
     - KafkaListener
     - kafka
