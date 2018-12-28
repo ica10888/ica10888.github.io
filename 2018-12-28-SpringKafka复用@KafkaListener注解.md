@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      SpringKafka复用@KafkaListener注解
+subtitle:   SpringKafka复用@KafkaListener注解
+date:       2018-12-28
+author:     ica10888
+catalog: true
+tags:
+    - Spring
+    - KafkaListener
+    - kafka
+---
+
 # SpringKafka复用@KafkaListener注解
 
 在使用@KafkaListener的时候，有时候一个Spring工程需要复用@KafkaListener注解。SpringKafka提供了一种主从的方式在同一个Spring工程下复用@KafkaListener的实现。
