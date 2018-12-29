@@ -1,3 +1,16 @@
+---
+layout:     post
+title:      Spring复用Bean类@Lookup注解
+subtitle:   Spring复用Bean类@Lookup注解
+date:       2018-12-29
+author:     ica10888
+catalog: true
+tags:
+    - java
+    - Spring
+---
+
+
 # Spring复用Bean类@Lookup注解
 
 在有的时候，实现了一个组件后，对于不同的 Task 使用 @Autowired 访问， 访问的都是同一个组件。这是因为 scope 是 singleton 的。而声明 scope 是prototype，并使用 @autowire 注入的话，还是不能实现我们的需求。Spring 提供了  @Lookup  来实现复用Bean类。
