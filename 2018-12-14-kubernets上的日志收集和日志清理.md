@@ -419,7 +419,9 @@ plugins:
 
 ![avatar][base64demo]
 
+### EFK
 
+ ELK（Elasticsearch , Logstash, Kibana）的日志收集方案，这种方案适用于专门收集微服务的日志。除了ELK ，还有一种日志收集的解决方案 EFK （Elasticsearch，Fluentd ， Kibana），EFK 是源于 docker 生态的，这里就不展开说了，有兴趣可以查找相关资料。
 
 ### 参考
 
