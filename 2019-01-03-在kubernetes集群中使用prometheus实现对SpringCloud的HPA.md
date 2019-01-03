@@ -1,3 +1,18 @@
+---
+layout:     post
+title:      在kubernetes集群中使用prometheus实现对SpringCloud的HPA
+subtitle:   在kubernetes集群中使用prometheus实现对SpringCloud的HPA
+date:       2019-01-03
+author:     ica10888
+catalog: true
+tags:
+    - kubernetes
+    - hpa
+    - spring
+    - prometheus
+---
+
+
 # 在kubernetes集群中使用prometheus实现对SpringCloud的HPA
 
 在kubernetes集群中需要实现对微服务（spring cloud）的弹性伸缩，也就是HPA （Horizontal Pod Autoscaler）。通过在微服务上暴露一个 prometheus 的模块，使用 HPA v2beta2 加入的 metrics 的 pod 类型的 type ，就可以基于 prometheus 的参数，实现对微服务弹性伸缩。
