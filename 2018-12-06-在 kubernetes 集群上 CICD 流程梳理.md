@@ -77,7 +77,7 @@ deployment.yaml
 - lib文件夹，放入依赖的 jar包
 - config 文件夹 ，放入配置文件
 
-然后将这些东西 COPY 到镜像当中
+然后将这些东西 docker COPY 到镜像当中
 
 #### skafflod
 
