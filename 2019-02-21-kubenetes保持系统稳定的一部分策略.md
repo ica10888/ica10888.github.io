@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      在kubernetes集群中使用prometheus实现对SpringCloud的HPA
+subtitle:   在kubernetes集群中使用prometheus实现对SpringCloud的HPA
+date:       2019-01-03
+author:     ica10888
+catalog: true
+tags:
+    - kubernetes
+    - systemctl
+---
+
 # kubenetes保持系统稳定的一部分策略
 
 为了保持 kubenetes 集群的稳定性，分别从不同的层面加强系统的稳定性。
@@ -12,7 +24,7 @@
 
 ### CGroup 
 
-linux service一般有以下几个策略
+systemctl 般有以下几个策略
 
 ``` shell
 no（默认值）：退出后不会重启
