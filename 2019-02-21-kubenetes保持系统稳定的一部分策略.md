@@ -82,7 +82,9 @@ cat /sys/fs/cgroup/cpu,cpuacct/system.slice/kube-proxy.service/cpu.shares
 per = cpu.share/sum(cpu.share)
 ```
 
-比如，一台机器上有三个进程，A的cpu.share为1000，而B、C的cpu.share都是500，当CPU饱和时，A可以使用50%CPU时间，而B、C两个进程则分别能使用25%的CPU时间。
+##### 举个例子
+
+一台机器上有三个进程，A的cpu.share为1000，而B、C的cpu.share都是500，当CPU饱和时，A可以使用50%CPU时间，而B、C两个进程则分别能使用25%的CPU时间。
 
 **cpu.cfs_period_us、cpu.cfs_quota_us**
 
