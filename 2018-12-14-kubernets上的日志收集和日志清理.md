@@ -426,9 +426,13 @@ plugins:
 ### 参考
 
 [Kubernetes日志采集Sidecar模式介绍](https://yq.aliyun.com/articles/650939)
+
 [深度解析Kubernetes Local Persistent Volume](https://www.liangzl.com/get-article-detail-14743.html)
+
 [Kubernetes部署ELK并使用Filebeat收集容器日志](https://www.cnblogs.com/cocowool/p/deploy_elk_and_collect_logs_via_filebeat.html)
+
 [kubernetes官方文档](https://kubernetes.io/docs/concepts/)
+
 [轻松搞定对容器实例日志设置定期清理和回卷](https://blog.csdn.net/qcloudcommunity/article/details/77824015)
 
 
