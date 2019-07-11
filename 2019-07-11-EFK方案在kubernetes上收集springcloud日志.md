@@ -1,3 +1,20 @@
+---
+layout:     post
+title:      EFK方案在kubernetes上收集springcloud日志
+subtitle:   EFK方案在kubernetes上收集springcloud日志
+date:       2019-07-11
+author:     ica10888
+catalog: true
+tags:
+    - kubernetes
+    - 日志收集
+    - 日志清理
+    - efk
+    - logtrail
+    - fluentd
+---
+
+
 # EFK 方案在kubernetes上收集 spring cloud 日志
 
 ### fluentd
