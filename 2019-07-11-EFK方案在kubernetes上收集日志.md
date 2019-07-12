@@ -61,7 +61,7 @@ charts仓库：https://github.com/kiwigrid/helm-charts/tree/master/charts/fluent
 
 日志收集分成2个部分。
 
-一个收集容器的日志，也就是`kubernetes-%Y-%m-%d` 的收集的是/var/log/containers/*.log 的日志，将符合正则条件的日志 **匹配这个子表达式的文本**  分组  **捕获 **  到 json 节点里面，最后收集到  Elasticsearch 里面。
+一个收集容器的日志，也就是`kubernetes-%Y-%m-%d` 的收集的是/var/log/containers/*.log 的日志，将符合正则条件的日志 **匹配这个子表达式的文本**  分组  **捕获**  到 json 节点里面，最后收集到  Elasticsearch 里面。
 
 另一个是收集 kubernetes 日志，也就是 kubelet、kube-proxy、kube-apiserver、kube-controller-manager、kube-scheduler 等进程的日志。由于使用的是 kubespray 安装的 kubernetes 集群。所有的日志都会收集到 /var/log/messages 里面，收集日志的过程中加入 @timestamp 进行排序，最后收集到  Elasticsearch 里面，格式是`messages-%Y-%m-%d`。
 
