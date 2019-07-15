@@ -248,7 +248,7 @@ data:
       @type tail
       <parse>
         @type regexp
-        expression /^(?<timestamp>[^ ]*  [^ ]* [^ ]*) (?<node>[^ ]*) (?<app>[^ ]*): (?<message>.*)$/
+        expression /^(?<timestamp>[^ ]* [^ ]* [^ ]*) (?<node>[^ ]*) (?<app>[^ ]*): (?<message>.*)$/
       </parse>
       path /var/log/messages
       pos_file /var/log/messages.pos
