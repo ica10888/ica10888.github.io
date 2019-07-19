@@ -19,7 +19,7 @@ tags:
 
 ### fluentd
 
-在之前的博客中，我提到过使用Elasticsearch , Logstash, Kibana + FileBeat 实现 kubernetes 上的日志收集。
+在之前的文章中，我提到过使用Elasticsearch , Logstash, Kibana + FileBeat 实现 kubernetes 上的日志收集。
 
 就先在来说，修改了日志收集的方案，使用 Elasticsearch Kibana + fluentd 对日志进行收集，也就是 EFK方案。
 
