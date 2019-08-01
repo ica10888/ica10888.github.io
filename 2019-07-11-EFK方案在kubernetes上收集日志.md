@@ -208,6 +208,19 @@ data:
       logstash_format true
       logstash_prefix messages
       reconnect_on_error true
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/kubernetes.messages.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size "#{ENV['OUTPUT_BUFFER_CHUNK_LIMIT']}"
+        queue_limit_length "#{ENV['OUTPUT_BUFFER_QUEUE_LIMIT']}"
+        overflow_action block
+      </buffer>
     </match>
 
     <match  kubernetes.**>
