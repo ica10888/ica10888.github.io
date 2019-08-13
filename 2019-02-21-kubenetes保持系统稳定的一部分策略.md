@@ -168,6 +168,8 @@ Guaranteed 就是配置了 `spec.containers.resources` ，但是 limits 和 requ
 | BestEffort       | 1000                                                         |
 | Burstable        | min(max(2, 1000 - (1000 * memoryRequestBytes) / machineMemoryCapacityBytes), 999) |
 
+需要注意的是当 Qos 是 Guaranteed 类型时，CPU将采用 cpuset 而非 cpushare 的模式，意思是假设分配2c，程序将固定在宿主机的某2个核上，进行上下文切换的次数大大减少，容器里应用的性能会得到大幅提升。
+
 ##### 举个例子
 
 这里有3个pod ，由于内存不足，达成移除信号，开始驱逐。
