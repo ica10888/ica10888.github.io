@@ -141,6 +141,10 @@ data:
           time_format %d/%b/%Y:%H:%M:%S.%NZ
         </pattern>
         <pattern>
+          format regexp
+          expression /^(?<message>[\w\W]*)$/
+        </pattern>
+        <pattern>
           format none
         </pattern>
       </parse>
