@@ -21,6 +21,46 @@ kubectl cp 指令是将容器当中的数据拷贝到当前机器上，同理，
 
 其实现是将文件或文件夹抽象成一个数据流 Stream，然后通过 kube-apiserver 访问容器，对进行文件传输。
 
+
+### tar
+
+使用` tar -cf -` 将具有文件夹结构的数据转换成数据流，再通过 linux 管道接收这个数据流；通过` tar -xf -` 将数据流转换成 linux 文件系统。
+
+以一下文件结构为例
+
+```
+/tmp
+├─hello
+   └─ world    "你好"
+```
+当使用 tar 的时候，会将文件目录非压缩地转换成数据流
+
+``` shell
+
+[root@iZt4nipafhgmbv6v4e4yjfZ hello]# tar -cf - /tmp/hello
+tar: Removing leading `/' from member names
+tmp/hello/0000755000000000000000000000000013542405175011465 5ustar  rootroottmp/hello/world0000644000000000000000000000000713542405175012534 0ustar  rootroot你好
+
+```
+可以看到数据流中包含有 mod 和 own 的内容。
+
+包括有文件属性与权限
+
+比如目录`/tmp/hello`是0000755,文件`/tmp/hello/world`是0000644，因为没有特殊权限SUID、SGID、SBIT，这里前面都是0
+
+接下来表示文件的储存位置000000000000000000000000013542405175011465 和 0000644000000000000000000000000713542405175012534
+
+然后是文件类型，由于`/tmp/hello`是目录，`/tmp/hello/world`是文件，分别用`5ustar`和`0ustar`表示目录类型和文件类型
+
+接下来就是文件内容
+
+`rootroot` 分别表示拥有者及所属群组，linux的权限即以此为划分的
+
+比如文件`/tmp/hello/world` 的0644权限，即`-rw-r--r--`，文件拥有者root用户拥有读写权限,所属群组root的用户和其他用户只拥有读权限。
+
+然后就是文件数据了。
+
+
 ### 代码
 
 代码结构如下
