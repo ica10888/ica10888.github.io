@@ -26,6 +26,8 @@ kubectl cp 指令是将容器当中的数据拷贝到当前机器上，同理，
 
 使用` tar -cf -` 将具有文件夹结构的数据转换成数据流，再通过 linux 管道接收这个数据流；通过` tar -xf -` 将数据流转换成 linux 文件系统。
 
+`  -f, --file=ARCHIVE         use archive file or device ARCHIVE`
+
 以一下文件结构为例
 
 ```
