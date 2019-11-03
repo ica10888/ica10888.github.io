@@ -363,7 +363,7 @@ plugins:
 
 以下是打算修改的 logtrail.json
 
-```yaml
+```json
 {
 "index_patterns" : [
     {
