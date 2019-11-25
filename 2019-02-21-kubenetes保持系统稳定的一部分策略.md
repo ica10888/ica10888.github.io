@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      在kubernetes集群中使用prometheus实现对SpringCloud的HPA
-subtitle:   在kubernetes集群中使用prometheus实现对SpringCloud的HPA
+title:      kubenetes保持系统稳定的一部分策略
+subtitle:   kubenetes保持系统稳定的一部分策略
 date:       2019-01-03
 author:     ica10888
 catalog: true
