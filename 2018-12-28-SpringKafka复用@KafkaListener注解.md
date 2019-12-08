@@ -151,15 +151,15 @@ Private ApplicationContext context;
 
 ``` java
 KafkaListenerContainerFactory<?> batchFactoryForCmd = (KafkaListenerContainerFactory<?>) context.getBean("batchFactoryForCmd");
-KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactory =（KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>）context.getBean("kafkaListenerContainerFactory");
-ConsumerFactory<Integer, String> consumerFactory = （ConsumerFactory<Integer, String>）context.getBean("consumerFactory");
-Map<String, Object> consumerConfigs = （Map<String, Object>）context.getBean("consumerConfigs");
+KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactory =(KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>) context.getBean("kafkaListenerContainerFactory");
+ConsumerFactory<Integer, String> consumerFactory = (ConsumerFactory<Integer, String>) context.getBean("consumerFactory");
+Map<String, Object> consumerConfigs = (Map<String, Object>)context.getBean("consumerConfigs");
 
 
 KafkaListenerContainerFactory<?> batchFactoryForConn = (KafkaListenerContainerFactory<?>) context.getBean("batchFactoryForConn");
-KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactoryForConn =（KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>）context.getBean("kafkaListenerContainerFactoryForConn");
-ConsumerFactory<Integer, String> consumerFactoryForConn = （ConsumerFactory<Integer, String>）context.getBean("consumerFactoryForConn");
-Map<String, Object> ConsumerConfigsForConn = （Map<String, Object>）context.getBean("ConsumerConfigsForConn");
+KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactoryForConn =(KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>) context.getBean("kafkaListenerContainerFactoryForConn");
+ConsumerFactory<Integer, String> consumerFactoryForConn = (ConsumerFactory<Integer, String>)context.getBean("consumerFactoryForConn");
+Map<String, Object> ConsumerConfigsForConn = (Map<String, Object>)context.getBean("ConsumerConfigsForConn");
 
 ```
 
