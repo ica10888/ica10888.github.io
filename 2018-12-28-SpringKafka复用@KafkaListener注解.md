@@ -134,3 +134,32 @@ Other KafkaFactory Config
     }
 ```
 
+### BeanFacotry
+
+##### BeanFactory和FactoryBean的区别
+
+BeanFactory是接口 , 一般使用的高级容器  ApplicationContext 接口继承了这个接口（其实是继承了多个接口，其中ListableBeanFactory, HierarchicalBeanFactory 都继承了BeanFactory），所有Bean 由它来管理。
+
+FactoryBean在IOC容器的基础上给Bean的实现加上了一个简单工厂模式和装饰模式，让我们可以获取Bean，是通过反射机制实现的，很多Bean类都实现了FactoryBean<T>。
+
+这样使用不同的id就可以获取到各自的Bean实例。
+
+``` java
+@Autowired
+Private ApplicationContext context;
+```
+
+``` java
+KafkaListenerContainerFactory<?> batchFactoryForCmd = (KafkaListenerContainerFactory<?>) context.getBean("batchFactoryForCmd");
+KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactory =（KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>）context.getBean("kafkaListenerContainerFactory");
+ConsumerFactory<Integer, String> consumerFactory = （ConsumerFactory<Integer, String>）context.getBean("consumerFactory");
+Map<String, Object> consumerConfigs = （Map<String, Object>）context.getBean("consumerConfigs");
+
+
+KafkaListenerContainerFactory<?> batchFactoryForConn = (KafkaListenerContainerFactory<?>) context.getBean("batchFactoryForConn");
+KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>> kafkaListenerContainerFactoryForConn =（KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<Integer, String>>）context.getBean("kafkaListenerContainerFactoryForConn");
+ConsumerFactory<Integer, String> consumerFactoryForConn = （ConsumerFactory<Integer, String>）context.getBean("consumerFactoryForConn");
+Map<String, Object> ConsumerConfigsForConn = （Map<String, Object>）context.getBean("ConsumerConfigsForConn");
+
+```
+
