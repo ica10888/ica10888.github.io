@@ -82,3 +82,46 @@ public class Task2 {
 
 这里分别实现了2个 Counter ，并同时由 Spring 管理它们的生命周期。
 
+### 什么是@Lookup
+
+当我们调用一个被 `@Lookup`  注解的方法时，Spring 会返回一个值类型的实例。
+
+实质上，Spring会 override  注解方法并使用我们方法的返回值和参数作为BeanFactory#getBean方法的入参。
+
+`@Lookup`  用于
+
+- 向一个单例bean注入一个原型bean(prototype-scoped bean)(类似于Provider)
+- 程序化地注入依赖
+
+### 使用@Lookup
+
+当我们决定使用一个原型bean时，我们将要面对的是 单例 bean 要如何使用这些原型bean呢？
+当然可以使用Provider，但是@Lookup在某些方面更合适一些。
+
+以上面的例子为例
+
+@Lookup 通过我们的 单例bean 获取 Counter 实例。
+
+``` java
+@Test
+public void whenLookupMethodCalled_thenNewInstanceReturned() {
+    // ... initialize context
+    Task1 first = this.context.getBean(Task1.class);
+    Task2 second = this.context.getBean(Task2.class);
+        
+    assertEquals(first, second); 
+    assertNotEquals(first.getNotification(), second.getNotification()); 
+}
+```
+
+为什么方法要返回 null呢。
+
+这是因为，spring通过调用beanFactory.getBean(Task1.class)重写了这个方法，所以我们将它置空。
+
+使用@Lookup注入的话，还可以通过构造器传参，其实就是spring调用beanFactory.getBean(class, name)实现的。
+
+
+
+### 参考
+
+[@Lookup Annotation in Spring](https://www.baeldung.com/spring-lookup)
