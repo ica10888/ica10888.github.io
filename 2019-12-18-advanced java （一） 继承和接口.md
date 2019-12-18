@@ -229,7 +229,9 @@ class Cat extends Animal with FourLegs
 
 object  Main {
   def main(args: Array[String]): Unit = {
+  
     val person  = new Person ; person.legs("person") // person with two legs
+    
     val cat  = new Cat ; cat.legs("cat") //cat with four legs
   }
 }
@@ -250,8 +252,11 @@ class InsectB extends Animal with TwoLegs with FourLegs
 
 object  Main {
   def main(args: Array[String]): Unit = {
+  
     val insectA  = new InsectA ; insectA.legs("insectA") //insectA with two legs with four legs
+    
     val insectB  = new InsectB ; insectB.legs("insectB") //insectB with four legs with two legs
+    
   }
 }
 ```
