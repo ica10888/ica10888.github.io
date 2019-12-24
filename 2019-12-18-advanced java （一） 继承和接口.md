@@ -247,15 +247,15 @@ Java8之前没有默认方法，都是瘦接口。而加入默认方法后，为
 
 ``` scala
 
-class InsectA extends Animal with FourLegs with TwoLegs
-class InsectB extends Animal with TwoLegs with FourLegs
+class Ant extends Animal with FourLegs with TwoLegs
+class Grasshopper extends Animal with TwoLegs with FourLegs
 
 object  Main {
   def main(args: Array[String]): Unit = {
   
-    val insectA  = new InsectA ; insectA.legs("insectA") //insectA with two legs with four legs
+    val ant  = new Ant ; ant.legs("ant") //ant with two legs with four legs
     
-    val insectB  = new InsectB ; insectB.legs("insectB") //insectB with four legs with two legs
+    val grasshopper  = new Grasshopper ; grasshopper.legs("grasshopper") //grasshopper with four legs with two legs
     
   }
 }
