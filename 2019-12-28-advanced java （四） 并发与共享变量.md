@@ -130,11 +130,11 @@ public final int getAndSetInt(Object var1, long var2, int var4) {
 
        CAS操作更新 （一次成功就说明自己是另外的线程，失败就说明自己可能是第一个线程或者第三个线程）
 				成功 	/     \   失败
-          获取轻量级锁成功     \
-     检查对象头Mark Word是否指向当前线程的栈帧   
-							 是 /     \ 否
-	           直接进入同步块继续执行	    \
-						Mark Word中存储的变成指向重量级锁（互斥量）的指针
+                             获取轻量级锁成功     \
+                                  检查对象头Mark Word是否指向当前线程的栈帧   
+				                  是 /     \ 否
+                                    直接进入同步块继续执行	   \
+                                         Mark Word中存储的变成指向重量级锁（互斥量）的指针
 ```
 
 ##### 其他优化
@@ -508,21 +508,15 @@ System.out.println(max); //68
 
 假设我们需要在一个很长的段落中统计 `the`出现的次数。
 
-``` text
-It was the best of times， it was the worst of times， it was the age of wisdom， it was the age of foolishness， it was the epoch of belief， it was the epoch of incredulity， it was the season of Light， it was the season of Darkness， it was the spring of hope， it was the winter of despair， we had everything before us， we had nothing before us， we were all going direct to Heaven， we were all going direct the other way—in short， the period was so far like the present period， that some of its noisiest authorities insisted on its being received， for good or for evil， in the superlative degree of comparison only。
-```
+> It was the best of times， it was the worst of times， it was the age of wisdom， it was the age of foolishness， it was the epoch of belief， it was the epoch of incredulity， it was the season of Light， it was the season of Darkness， it was the spring of hope， it was the winter of despair， we had everything before us， we had nothing before us， we were all going direct to Heaven， we were all going direct the other way—in short， the period was so far like the present period， that some of its noisiest authorities insisted on its being received， for good or for evil， in the superlative degree of comparison only。
 
 在使用折叠，拆分块（chunk）的时候，或许会丢失掉一些 `the` 的统计
 
-``` text
-(It was t)(he best of times， it w)(as the worst of times， it was th)(e age of wisdom， it was t)(he age of foolishness...)
-```
+> (It was t)(he best of times， it w)(as the worst of times， it was th)(e age of wisdom， it was t)(he age of foolishness...)
 
 或许需要考虑一些边界情况，将边界上的 `the` 做一些处理，在拆分文本的时候，如果遇到 `the` ，不将 `the` 拆分就可以了。
 
-``` text
-(It was )(the best of times， it w)(as the worst of times， it was the)( age of wisdom， it was )(the age of foolishness...)
-```
+> (It was )(the best of times， it w)(as the worst of times， it was the)( age of wisdom， it was )(the age of foolishness...)
 
 这样就构建了一个 monoid ，可以并行计算了。
 
