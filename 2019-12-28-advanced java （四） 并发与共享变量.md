@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      advanced java（四） 并发与共享变量
-subtitle:   advanced java（四） 并发与共享变量
+title:      advanced java （四） 并发与共享变量
+subtitle:   advanced java （四） 并发与共享变量
 date:       2019-12-28
 author:     ica10888
 catalog: true
@@ -9,7 +9,7 @@ tags:
     - java
 ---
 
-# advanced java（四） 并发与共享变量
+# advanced java （四） 并发与共享变量
 
 大多数情况下，我们讨论的并发问题，事实上难点都是在讨论并发过程中共享变量的安全问题。即如何在并发过程中，保证多个 worker 的共享变量的原子性的问题。
 
