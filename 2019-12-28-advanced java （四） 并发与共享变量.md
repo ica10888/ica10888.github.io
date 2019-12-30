@@ -543,7 +543,7 @@ Actor彼此之间直接发送消息，不需要经过什么中介，消息是 **
 
 Actor可能会堵塞自己,但Actor不应该堵塞它运行的线程。
 
-#### channel
+#### Channel
 
 ![channel](https://cdn.jdon.com/simgs/performance/channel.png)
 
