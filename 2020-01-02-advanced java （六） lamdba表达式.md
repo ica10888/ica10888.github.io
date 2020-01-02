@@ -493,7 +493,7 @@ println(uncurry((x:Int) => (y:Int) => ( x + 5 ) * y).apply(2,3))
 
 而实际上，这里可以不用加括号，因为箭头函数是隐式右结合，可以写成 `Int => Int => Int`
 
-而 ` (Int => Int) => Int` 和前面两种是不等价的，表示入参是一个 `Function[Int,Int]` 类型参数，出参是一个Int 类型参数
+而  `(Int => Int) => Int`  和前面两种是不等价的，表示入参是一个  `Function[Int,Int]`  类型参数，出参是一个Int 类型参数
 
 柯里化和反柯里化的scheme实现
 
