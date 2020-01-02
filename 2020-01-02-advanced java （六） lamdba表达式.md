@@ -182,29 +182,24 @@ Arrays.asList(1,3,5)
 
 以数学公式举例
 
-$$
-f(x)  = x + 5
-$$
+![](http://latex.codecogs.com/gif.latex?\\f(x)=x+5)
 
-$$
-g(y)  = y * 2
-$$
+![](http://latex.codecogs.com/gif.latex?\\g(y)=y*2)
 
-$$
-h(z)  = z - 7
-$$
+![](http://latex.codecogs.com/gif.latex?\\h(z)=z-7)
+
 
 当我们需要将3个公式组合在一起的时候
 
-$$
-h(g(f(x)))  = ( x + 5 ) * 2 - 7 
-$$
+
+![][formula1]
+[formula1]:http://latex.codecogs.com/gif.latex?\\h(g(f(x)))=(x+5)*2-7
 
 当然，这里看起来有一些反人类，我们修改成符合人们习惯的公式
 
-$$
-f \circ g \circ h (x) = ( x + 5 ) * 2 - 7
-$$
+
+![][formula2]
+[formula2]:http://latex.codecogs.com/gif.latex?\\f\circg\circh(x)=(x+5)*2-7
 
 前者便是 `compose` ，后者便是  `andThen` ，以下是代码实现
 
@@ -223,9 +218,9 @@ System.out.println(" compose function result: "  + h.compose(g.compose(f)).apply
 
 显而易见
 
-$$
-f  \circ g \circ h (x) = ( x + 5 ) * 2 - 7  \\ = (2x + 10 ) - 7  \\ = y * 2  - 7  \:  ( y  = x + 5 )
-$$
+![][formula3]
+[formula3]:http://latex.codecogs.com/gif.latex?\\f\circg\circh(x)=(x+5)*2-7\\=(2x+10)-7\\=y*2-7\:(y=x+5)
+
 
 ``` java
 Function<Integer,Integer> continues = null;
@@ -434,23 +429,22 @@ stream.count(); //抛出异常 java.lang.IllegalStateException: stream has alrea
 事实上，只要一个方法，能够返回 lambda 表达式，就可以实现 柯里化和反柯里化。但是 java写起来太啰嗦了，好比是在 java8 里面，还在用内部类写匿名函数，这里使用 scala 代码来解释。
 
 还是以数学公式举例
-$$
-f(x，y)  = （x + 5） * y
-$$
+
+![][formula4]
+[formula4]:http://latex.codecogs.com/gif.latex?\\f(x,y)=(x+5)*y
+
 
 这里是一个二元函数，我们希望把它转化成单参数的形式
 
 既然，我们使用 `f` 能够表示是一个函数，那么 `fx` 也能表示一个函数，这里都是数学符号 （暴论）
 
-$$
-fx(y)  = （x + 5） * y
-$$
+![][formula5]
+[formula5]:http://latex.codecogs.com/gif.latex?\\fx(y)=(x+5)*y
 
 这里的 `fx` 其实是一个函数
 
-$$
-fx  = x + 5
-$$
+![][formula6]
+[formula6]:http://latex.codecogs.com/gif.latex?\\fx=x+5
 
 这样就转换成了单一参数的形式，也就是柯里化，反过来就是反柯里化
 
