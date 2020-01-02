@@ -197,7 +197,7 @@ Arrays.asList(1,3,5)
 当然，这里看起来有一些反人类，我们修改成符合人们习惯的公式
 
 
-![](http://latex.codecogs.com/gif.latex?\\f\circg\circh(x)=(x+5)*2-7)
+![](http://latex.codecogs.com/gif.latex?\\f\circ%20g\circ%20h(x)=(x+5)*2-7)
 
 前者便是 `compose` ，后者便是  `andThen` ，以下是代码实现
 
@@ -216,7 +216,7 @@ System.out.println(" compose function result: "  + h.compose(g.compose(f)).apply
 
 显而易见
 
-![](http://latex.codecogs.com/gif.latex?\\f\circg\circh(x)=(x+5)*2-7\\=(2x+10)-7\\=y*2-7\:(y=x+5))
+![](http://latex.codecogs.com/gif.latex?\\f\circ%20g\circ%20h(x)=(x+5)*2-7\\=(2x+10)-7\\=y*2-7\:(y=x+5))
 
 
 ``` java
