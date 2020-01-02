@@ -452,9 +452,11 @@ scala代码实现
 
 ``` scala
 //多个参数
+
 def f (x:Int,y:Int): Int = { (x + 5) * y }
 println(f(2,3))
 //单一参数
+
 def fx(x: Int) = (y: Int) => { (x + 5) * y }
 println(fx(2)(3))
 ```
