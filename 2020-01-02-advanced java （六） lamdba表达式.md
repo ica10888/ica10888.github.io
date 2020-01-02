@@ -178,7 +178,7 @@ Arrays.asList(1,3,5)
 
 ##### 高阶函数
 
-在接口`Function`，里面有两个默认方法  `andThen`和 `compose` 。当然，在其他函数接口里面也有，用于编写高阶函数 (higt-order function)。
+在接口`Function`，里面有两个默认方法  `andThen`和 `compose` 。当然，在其他函数接口里面也有，用于编写高阶函数 (high-order function)。
 
 以数学公式举例
 
