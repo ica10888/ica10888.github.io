@@ -367,7 +367,7 @@ call-by-name 一般来说不会立即求值，而是到了调用的时候再进�
 
 java 里面实现起来会有点困难，而scala 里面提供了一个语法糖,使用 `i: => A`   来延迟调用，也被称作 `thunk`。 
 
-不使用 thunk
+thunk 在方法传入时被计算
 
 ``` scala
 lazy val i  = { println("I am lazy"); 2 * 3} //这里使用 lazy 关键字，只有在调用的时候求值
@@ -389,7 +389,7 @@ println(i) //只会打印计算后的结果
 //6
 ```
 
-使用 thunk
+thunk 应当在调用时被计算
 
 ``` scala
 lazy val i  = {println("I am thunk"); 2 * 3} //这里没有预先计算
@@ -493,11 +493,11 @@ println(curry((x:Int,y:Int) => ( x + 5 ) * y).apply(2).apply(3))
 println(uncurry((x:Int) => (y:Int) => ( x + 5 ) * y).apply(2,3))
 ```
 
-需要注意的是 ，我们可以看到 `A => ( B => C)`  这样的 lambda 表达式， 这里 A,B,C 表示类型，假设都用 `Int` 代替： `Int => (Int => Int)`  ，这里表示入参是一个Int 类型参数，出参是一个 `Function[Int,Int]` 
+需要注意的是 ，我们可以看到 `A => ( B => C)`  这样的 lambda 表达式， 这里 A,B,C 表示类型，假设都用 `Int` 代替： `Int => (Int => Int)`  ，这里表示入参是一个 `Int` 类型参数，出参是一个 `Function[Int,Int]` 
 
 而实际上，这里可以不用加括号，因为箭头函数是隐式右结合，可以写成 `Int => Int => Int`
 
-而  `(Int => Int) => Int`  和前面两种是不等价的，表示入参是一个  `Function[Int,Int]`  类型参数，出参是一个Int 类型参数
+而  `(Int => Int) => Int`  和前面两种是不等价的，表示入参是一个  `Function[Int,Int]`  类型参数，出参是一个 `Int` 类型参数
 
 柯里化和反柯里化的scheme实现
 
