@@ -503,7 +503,7 @@ Integer max = Arrays.asList(new Integer[]{32,23,66,12,68,11,22})
 System.out.println(max); //68
 ```
 
-这里的幺元是 `Optional.of(null)`，也被称作`None`，避免 null 和数字的直接比较。
+这里的幺元是 `Optional.of(null)`，也被称作`None`。
 
 #### 构建 monoid 
 
