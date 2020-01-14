@@ -213,9 +213,21 @@ synchronized提供了便捷性的隐式获取锁释放锁机制，而ReentrantLo
 
 AbstractQueuedSynchronizer
 
-AQS即队列同步器，AQS使用一个int类型的成员变量state来表示同步状态，当state>0时表示已经获取了锁，当state = 0时表示释放了锁。它提供了三个方法（getState()、setState(int newState)、compareAndSetState(int expect,int update)）来对同步状态state进行操作，当然AQS可以确保对state的操作是安全的。
+AQS即队列同步器，AQS使用一个int类型的成员变量 `state` 来表示同步状态，当 state>0 时表示已经获取了锁，当 state = 0 时表示释放了锁。它提供了三个方法（ `getState`、`setState` 、`compareAndSetState` ）来对同步状态 `state` 进行操作，当然AQS可以确保对 `state `的操作是安全的。
 
-AQS通过内置的FIFO同步队列来完成资源获取线程的排队工作，如果当前线程获取同步状态失败（锁）时，AQS则会将当前线程以及等待状态等信息构造成一个节点（Node）并将其加入同步队列，同时会阻塞当前线程，当同步状态释放时，则会把节点中的线程唤醒，使其再次尝试获取同步状态。
+而被 `tryAcquire` 、`tryRelease` 等方法被 `protected` 修饰，需要子类有不同的实现，如是否公平。
+
+对于队列里面的线程，用不同的字段表示不用的状态
+
+- SIGNAL(-1) : 正常状态，被阻塞
+- CANCELLED(1)：因为超时或中断，该线程已经被取消
+- CONDITION(-2)：表明该线程被处于条件队列，就是因为调用了 >- Condition.await而被阻塞
+- PROPAGATE(-3)：传播共享锁
+- 0代表无状态
+
+AQS通过内置的FIFO同步队列来完成资源获取线程的排队工作，如果当前线程获取同步状态失败（锁）时，AQS则会将当前线程以及等待状态等信息构造成一个节点（Node）并将其加入同步队列（通过 `addWaiter` 方法，以CAS的形式），同时会阻塞当前线程，当同步状态释放时，则会把节点中的线程唤醒，使其再次尝试获取同步状态。
+
+ AbstractQueuedSynchronizer设计很巧妙，基于阻塞的CLH队列容纳所有的阻塞线程，而对该队列的操作均通过Lock-Free（CAS）操作 ， 而且是轻量级锁。
 
 Condition
 
