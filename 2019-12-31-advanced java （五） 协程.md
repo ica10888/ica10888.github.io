@@ -350,7 +350,7 @@ public static Integer say(Integer num, Function<Integer,Integer> func) {
 
 **协程框架是通过CPS概念实现的。从原理上，cps变换允许我们将每个协程都分割成多个顺序任务，每个协程的子任务交替执行，就达到了异步的效果。**
 
-（lambda 演算是等价于图灵机的，这种计算机程序和数学证明之间的紧密联系 ，被称作Curry-Howard同构。准确地说应该是 lambda-mu 演算 ，因为 Continuation 是 Peirce’s law ，这又是另外个故事了...）
+（ lambda 演算是等价于图灵机的，这种计算机程序和数学证明之间的紧密联系 ，被称作Curry-Howard同构。准确地说应该是 lambda-mu 演算 ，因为 callcc 是 Peirce’s law ，这又是另外个故事了... ）
 
 ### quasar 协程库
 
