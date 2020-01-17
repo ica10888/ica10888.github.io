@@ -238,11 +238,11 @@ TreeMap实现了NavigableMap接口，而NavigableMap接口继承自SortedMap接�
 
 实现SortedMap接口，TreeMap中的元素可以返回头尾元素，和排序后某两个元素之间的元素。
 
-实现NavigableMap接口，TreeMap中的元素可以临近的元素，也可以操作临近的元素。
+实现NavigableMap接口，TreeMap中的元素可以获取临近的元素，也可以操作临近的元素。
 
 TreeMap的元素必须要实现Comparable接口，不然会抛出`java.lang.ClassCastException` 的异常。
 
-TreeMap 的底层是通过红黑树来实现排序的，事实上在访问下一个元素的时候，如果有右子树的节点，也就是去寻找右子树的最左节点；如果没有有右子树的节点，就是左子树的第一祖先节点（中序遍历）。
+TreeMap 的底层是通过红黑树来实现排序的。在访问下一个元素的时候，如果有右子树的节点，也就是去寻找右子树的最左节点；如果没有有右子树的节点，就是左子树的第一祖先节点（中序遍历）。
 
 ### SkipList
 
