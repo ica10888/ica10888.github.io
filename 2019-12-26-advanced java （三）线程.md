@@ -40,7 +40,7 @@ tags:
 
 除初始化和死亡状态，其他状态都是可以相互转换的。
 
-介绍完线程的基本概念后，我们会讲一讲线程的三种对象，Runnable(Thread) ，Callable ，Future（以及 CompletableFuture）。
+在 java 语言中，常使用线程的三种对象，Runnable(Thread) ，Callable ，Future（以及 CompletableFuture）。
 
 而线程的创建和销毁会有很大的开销，为了解决这个问题，使用线程池对线程管理和监督，执行调度。分别会介绍以下几种线程池
 
