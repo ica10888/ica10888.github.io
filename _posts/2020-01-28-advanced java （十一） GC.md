@@ -6,7 +6,7 @@ date:       2020-01-28
 author:     ica10888
 catalog: true
 tags:
-    - advanced java （十一） GC
+    - java
 ---
 
 # advanced java （十一） GC
