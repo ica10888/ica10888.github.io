@@ -290,7 +290,7 @@ for (int i = 1;i <= 1000000;i++){
 没错，使用**递归**就可以了。
 
 ``` java
-public  static void main(String[] args) {
+public static void main(String[] args) {
 
     Function<Integer,Integer> func = (Integer num) -> {
         System.out.println("第" + num + "次执行");
