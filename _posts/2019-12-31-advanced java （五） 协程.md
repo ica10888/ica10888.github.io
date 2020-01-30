@@ -318,7 +318,7 @@ public static Integer say(Integer num, Function<Integer,Integer> func) {
 
 但是，这里需要做一个小小的变换。尾递归，其实就是将递归方法中的需要的  **所有状态**  通过方法参数传入下一次调用中。
 
-``` scala
+``` java
 public static Integer say(Integer num, Function<Integer,Integer> func) {
     if (num <= 1000000){
         num = func.apply(num);
