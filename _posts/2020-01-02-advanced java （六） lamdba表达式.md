@@ -373,11 +373,10 @@ thunk 在方法传入时被计算
 lazy val i  = { println("I am lazy"); 2 * 3} //这里使用 lazy 关键字，只有在调用的时候求值
 
 println("begin")
-def printValue (i: Int){ //这里就触发计算了 ，打印 I am lazy
 
+def printValue (i: Int){ //这里就触发计算了 ，打印 I am lazy
     println("lazy function running")
     println(i) //只会打印计算后的结果
-    
 }
 printValue(i)
 println(i) //只会打印计算后的结果
@@ -396,10 +395,8 @@ lazy val i  = {println("I am thunk"); 2 * 3} //这里没有预先计算
 
 println("begin")
 def printValue (i: => Int){ //在传入过程中，并不会去触发计算，注意区别，这里是 ：=>
-
     println("thunk function running")
     println(i)   //开始计算，打印 I am thunk
-    
 }
 printValue(i)
 println(i)  //这里并不会打印 I am thunk ，这里只会打印6，即只会计算一次，这里是直接调用结果
@@ -452,11 +449,10 @@ scala代码实现
 
 ``` scala
 //多个参数
-
 def f (x:Int,y:Int): Int = { (x + 5) * y }
 println(f(2,3))
-//单一参数
 
+//单一参数
 def fx(x: Int) = (y: Int) => { (x + 5) * y }
 println(fx(2)(3))
 ```
@@ -480,12 +476,10 @@ println(result)
 
 ``` scala
 def curry[A,B,C](f:(A,B) => C): A=> ( B => C) = { //注意这里
-
     a:A =>  b:B => f(a,b)
 }
 
 def uncurry[A,B,C](f:A => B => C): (A,B) => C = {
-
     (a:A,b:B) => f(a)(b)
 }
 
