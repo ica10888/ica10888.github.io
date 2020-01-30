@@ -231,6 +231,7 @@ System.out.println(" ( f ◦ g ） ◦ h    function result: "  + results.apply(
 continues = f.andThen(g);
 results = continues.andThen(h);
 System.out.println("  f ◦ （ g ◦ h ）  function result: "  + results.apply(20));
+
 //( f ◦ g ） ◦ h   function result: 43
 // f ◦ （ g ◦ h ）  function result: 43
 ```
@@ -378,6 +379,7 @@ def printValue (i: Int){ //这里就触发计算了 ，打印 I am lazy
     println("lazy function running")
     println(i) //只会打印计算后的结果
 }
+
 printValue(i)
 println(i) //只会打印计算后的结果
 
@@ -394,10 +396,12 @@ thunk 应当在调用时被计算
 lazy val i  = {println("I am thunk"); 2 * 3} //这里没有预先计算
 
 println("begin")
+
 def printValue (i: => Int){ //在传入过程中，并不会去触发计算，注意区别，这里是 ：=>
     println("thunk function running")
     println(i)   //开始计算，打印 I am thunk
 }
+
 printValue(i)
 println(i)  //这里并不会打印 I am thunk ，这里只会打印6，即只会计算一次，这里是直接调用结果
 
