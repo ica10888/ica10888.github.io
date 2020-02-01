@@ -4,7 +4,6 @@ title:      advanced java （十一） GC
 subtitle:   advanced java （十一） GC
 date:       2020-01-28
 author:     ica10888
-cover:      'https://i0.hdslb.com/bfs/article/d34e9b42c423d368fc72571de7a6bf332a9e9faf.jpg@938w_938h.webp'
 catalog: true
 tags:
     - java
