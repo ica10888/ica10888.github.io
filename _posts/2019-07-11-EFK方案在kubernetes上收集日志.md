@@ -4,6 +4,7 @@ title:      EFK方案在kubernetes上收集日志
 subtitle:   EFK方案在kubernetes上收集日志
 date:       2019-07-11
 author:     ica10888
+cover:      'https://i0.hdslb.com/bfs/article/3396dcd461e969da83aded58a2c71413e3ff0ffb.jpg'
 catalog: true
 tags:
     - kubernetes
