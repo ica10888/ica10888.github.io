@@ -194,7 +194,7 @@ ZGC 的并发特性能够做到非常低的延迟 （小于 10 毫秒），但�
 
 golang 语言也是有 GC 的，实现应该是在二进制程序中加入大量的安全点。也是基于可达性分析算法，类似 CMS ，但是不使用分代收集。采用的 **三色标记算法** ，是一种标记整理算法。
 
-![](https://upload-images.jianshu.io/upload_images/6783565-b7282ce3d3872b8f.gif?imageMogr2/auto-orient/strip|imageView2/2/w/430/format/webp ) 
+![](https://raw.githubusercontent.com/ica10888/advanced-java-note/master/img/chapter1303.webp) 
 
 三色标记算法步骤如下
 
