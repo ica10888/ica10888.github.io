@@ -4,6 +4,7 @@ title:      advanced java （六） lamdba表达式
 subtitle:   advanced java （六） lamdba表达式
 date:       2020-01-02
 author:     ica10888
+cover:      'https://i0.hdslb.com/bfs/article/fb3a85668de48e90b634f4ef5d076e9f121640b4.jpg@1320w_824h.webp'
 catalog: true
 tags:
     - java
