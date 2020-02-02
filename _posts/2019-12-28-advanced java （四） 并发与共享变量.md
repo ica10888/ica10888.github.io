@@ -4,6 +4,7 @@ title:      advanced java （四） 并发与共享变量
 subtitle:   advanced java （四） 并发与共享变量
 date:       2019-12-28
 author:     ica10888
+cover:      'https://pic4.zhimg.com/80/v2-68418d5977c4265173307cd2ff574471_r.jpg'
 catalog: true
 tags:
     - java
