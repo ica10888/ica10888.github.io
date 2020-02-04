@@ -1,16 +1,17 @@
 ---
 layout:     post
-title:      kubernetes架构
-subtitle:   kubernetes架构
+title:      kubernetes 架构
+subtitle:   kubernetes 架构
 date:       2020-02-03
 author:     ica10888
+cover:      'https://i0.hdslb.com/bfs/article/7a70cf246f302c639e52fb6afd2d1153841f204a.jpg@1320w_710h.webp'
 catalog: true
 tags:
     - kubernetes
 ---
 
 
-# kubernetes架构
+# kubernetes 架构
 
 kubernetes 是一个容器集群部署和管理基础平台。起源于谷歌的内部大规模集群管理系统 Borg ，使用 golang 语言实现。 
 
