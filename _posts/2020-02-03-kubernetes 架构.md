@@ -33,6 +33,7 @@ kubectl 或者使用 client-go 程序，实际上是对 kube-apiserver 发送 re
 
 ``` yaml
 - --insecure-port=8081
+- --insecure-bind-address=0.0.0.0
 - --enable-swagger-ui=true
 ```
 
