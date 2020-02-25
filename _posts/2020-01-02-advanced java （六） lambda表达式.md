@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      advanced java （六） lamdba表达式
-subtitle:   advanced java （六） lamdba表达式
+title:      advanced java （六） lambda表达式
+subtitle:   advanced java （六） lambda表达式
 date:       2020-01-02
 author:     ica10888
 cover:      'https://i0.hdslb.com/bfs/article/fb3a85668de48e90b634f4ef5d076e9f121640b4.jpg@1320w_824h.webp'
@@ -12,15 +12,15 @@ tags:
 
 
 
-# advanced java （六） lamdba表达式
+# advanced java （六） lambda表达式
 
-lamdba表达式是java8带来的新特性，也是函数式思想的一种体现。
+lambda表达式是java8带来的新特性，也是函数式思想的一种体现。
 
-一方面来说，java8 将lamdba表达式 当作了一等公民（frist class），引入了这种代码风格后，大大简化了代码，提高了可读性。而另外一方面，提高了代码质量，如之前的 for循环，如果不经注意，容易写出更多时间复杂度和空间复杂度的实现，如果使用 lamdba ，如 stream API，可以强制地使用 `递归`和 `短路` 的思想，优化代码质量。
+一方面来说，java8 将lambda表达式 当作了一等公民（frist class），引入了这种代码风格后，大大简化了代码，提高了可读性。而另外一方面，提高了代码质量，如之前的 for循环，如果不经注意，容易写出更多时间复杂度和空间复杂度的实现，如果使用 lambda ，如 stream API，可以强制地使用 `递归`和 `短路` 的思想，优化代码质量。
 
-在 JDK 里面的 Function 包，以及如何在 jvm 里面实现的。使用匿名函数替代匿名内部类。以及lamdba表达式里面的变量会将外界变量隐式加上 `final`，一种`闭包`的体现。而不可变对象（immutable）可以带来一些优势。
+在 JDK 里面的 Function 包，以及如何在 jvm 里面实现的。使用匿名函数替代匿名内部类。以及lambda表达式里面的变量会将外界变量隐式加上 `final`，一种`闭包`的体现。而不可变对象（immutable）可以带来一些优势。
 
-函数式有一个很重要的概念叫 `副作用` ，即函数式思维的一种体现。需要了解为什么必须要在 lamdba 表达式中捕获异常，甚至是不能有 return 语句。以及高阶函数的使用，以数学的方式表达如何使用默认方法 `andThen`和 `compose`。
+函数式有一个很重要的概念叫 `副作用` ，即函数式思维的一种体现。需要了解为什么必须要在 lambda 表达式中捕获异常，甚至是不能有 return 语句。以及高阶函数的使用，以数学的方式表达如何使用默认方法 `andThen`和 `compose`。
 
 JDK 里面有一个很方便的 stream API ，可以帮助程序员延迟处理列表。 （ btw ，其实我不喜欢`stream`这个命名，感觉像是 IO 处理相关的，或许可以像 scala 那样改成 `lazylist`） 如 构建`无限流` ，`mapreduce` ，即映射（map）和归约（reduce）思想。 以及 `call by name`  、`call by vaule` 和 `call by need`的区别。
 
