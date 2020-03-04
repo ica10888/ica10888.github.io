@@ -9,6 +9,7 @@ catalog: true
 tags:
     - java
     - functional programming
+    - golang
 ---
 
 #  advanced java （五） 协程
