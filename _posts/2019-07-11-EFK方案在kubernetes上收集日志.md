@@ -8,8 +8,7 @@ cover:      'https://raw.githubusercontent.com/ica10888/banner/master/3396dcd461
 catalog: true
 tags:
     - kubernetes
-    - 日志收集
-    - 日志清理
+    - 日志收集和清理
     - efk
     - logtrail
     - fluentd
