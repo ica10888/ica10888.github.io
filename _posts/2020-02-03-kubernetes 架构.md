@@ -4,7 +4,7 @@ title:      kubernetes 架构
 subtitle:   kubernetes 架构
 date:       2020-02-03
 author:     ica10888
-cover:      'https://i0.hdslb.com/bfs/article/7a70cf246f302c639e52fb6afd2d1153841f204a.jpg@1320w_710h.webp'
+cover:      'https://raw.githubusercontent.com/ica10888/banner/master/7a70cf246f302c639e52fb6afd2d1153841f204a.jpg@1320w_710h.webp'
 catalog: true
 tags:
     - kubernetes

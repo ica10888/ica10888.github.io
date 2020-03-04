@@ -4,7 +4,7 @@ title:      advanced java （五） 协程
 subtitle:   advanced java （五） 协程
 date:       2019-12-31
 author:     ica10888
-cover:      'https://i0.hdslb.com/bfs/article/558b21ab2e4dba013a23d0e692c8650d805a839e.jpg@1320w_938h.webp'
+cover:      'https://raw.githubusercontent.com/ica10888/banner/master/558b21ab2e4dba013a23d0e692c8650d805a839e.jpg@1320w_938h.webp'
 catalog: true
 tags:
     - java

@@ -3,7 +3,7 @@ layout:     post
 title:      kubernetes API
 subtitle:   kubernetes API
 date:       2020-02-04
-cover:      'https://i0.hdslb.com/bfs/article/8b8affb4ba9715b94fed691d2a722f1417ef6a16.jpg@1320w_720h.webp'
+cover:      'https://raw.githubusercontent.com/ica10888/banner/master/8b8affb4ba9715b94fed691d2a722f1417ef6a16.jpg@1320w_720h.webp'
 author:     ica10888
 catalog: true
 tags:
