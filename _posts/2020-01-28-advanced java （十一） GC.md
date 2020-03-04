@@ -7,6 +7,7 @@ author:     ica10888
 catalog: true
 tags:
     - java
+    - golang
 ---
 
 # advanced java （十一） GC
