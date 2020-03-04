@@ -7,7 +7,7 @@ author:     ica10888
 catalog: true
 tags:
     - kubernetes
-    - systemctl
+    - linux
 ---
 
 # kubenetes保持系统稳定的一部分策略
