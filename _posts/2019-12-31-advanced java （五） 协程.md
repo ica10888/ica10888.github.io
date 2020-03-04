@@ -8,6 +8,7 @@ cover:      'https://raw.githubusercontent.com/ica10888/banner/master/558b21ab2e
 catalog: true
 tags:
     - java
+    - functional programming
 ---
 
 #  advanced java （五） 协程
