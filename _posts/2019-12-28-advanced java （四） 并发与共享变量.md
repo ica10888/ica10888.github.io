@@ -9,6 +9,7 @@ catalog: true
 tags:
     - java
     - functional programming
+    - golang
 ---
 
 # advanced java （四） 并发与共享变量
