@@ -8,6 +8,7 @@ catalog: true
 tags:
     - kubernetes
     - client-go
+    - golang
 ---
 
 
