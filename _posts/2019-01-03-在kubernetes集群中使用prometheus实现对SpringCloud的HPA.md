@@ -7,7 +7,6 @@ author:     ica10888
 catalog: true
 tags:
     - kubernetes
-    - hpa
     - spring
     - prometheus
 ---
