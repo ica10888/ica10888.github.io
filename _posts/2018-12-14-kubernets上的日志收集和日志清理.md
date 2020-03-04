@@ -7,11 +7,10 @@ author:     ica10888
 catalog: true
 tags:
     - kubernetes
-    - 日志收集
-    - 日志清理
+    - 日志收集和清理
     - elk
     - logtrail
-    - Filebeat
+    - filebeat
     - logBack
 ---
 
