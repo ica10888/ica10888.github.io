@@ -8,6 +8,7 @@ cover:      'https://raw.githubusercontent.com/ica10888/banner/master/fb3a85668d
 catalog: true
 tags:
     - java
+    - functional programming
 ---
 
 
