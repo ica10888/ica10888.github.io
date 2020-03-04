@@ -8,6 +8,7 @@ cover:      'https://raw.githubusercontent.com/ica10888/banner/master/51ac05cd2a
 catalog: true
 tags:
     - java
+    - functional programming
 ---
 
 # advanced java （四） 并发与共享变量
