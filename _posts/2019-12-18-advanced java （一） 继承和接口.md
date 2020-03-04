@@ -7,6 +7,8 @@ author:     ica10888
 catalog: true
 tags:
     - java
+    - golang
+    - scala
 ---
 
 
