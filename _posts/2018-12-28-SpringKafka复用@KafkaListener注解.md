@@ -7,8 +7,7 @@ author:     ica10888
 catalog: true
 tags:
     - java
-    - Spring
-    - KafkaListener
+    - spring
     - kafka
 ---
 
