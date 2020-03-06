@@ -285,7 +285,7 @@ data:
 ^{"@timestamp":"(?<longtime>[^"]*)","rest":"(?<message>(([\\]["])+|[^"])*)","class":"(?<class>[^"]*)","severity":"(?<severity>[^"]*)","service":"(?<service>[^"]*)","XForwardedFor":"(?<XForwardedFor>[^"]*)","trace":"(?<trace>[^"]*)","span":"(?<span>[^"]*)","parent":"(?<parent>[^"]*)","exportable":"(?<exportable>[^"]*)","pid":"(?<pid>[^"]*)","thread":"(?<thread>[^"]*)"}$
 ```
 
-在正则表达式中，使用 **分组语法** 中的 **捕获 ** 语法将日志保存到对应的json节点中，组的命名就是 json 的 key，捕获的数据就是 value。
+在正则表达式中，使用 **分组语法** 中的 **捕获** 语法将日志保存到对应的json节点中，组的命名就是 json 的 key，捕获的数据就是 value。
 
 其中 `([\\]["])+|[^"])*` 是防止在 `""` 中出现  `\"` 的情况
 
