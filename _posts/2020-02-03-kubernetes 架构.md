@@ -27,7 +27,7 @@ kubernetes 是一个容器集群部署和管理基础平台。起源于谷歌的
 
 ### kube-apiserver
 
-kubectl 或者使用 client-go 程序，实际上是对 kube-apiserver 发送 rest 或者 GRPC 请求。然后对 kubernetes API 作对应解析并操作，然后将这些对象储存在 etcd 中。默认端口是6443，存在于 master 节点上。
+kubectl 或者使用 client-go 程序，实际上是对 kube-apiserver 发送 rest 的 json 或者 Protobuf 请求。然后对 kubernetes API 作对应解析并操作，然后将这些对象储存在 etcd 中。默认端口是6443，存在于 master 节点上。
 
 可以通过修改 `/etc/kubernetes/manifests/kube-apiserver.yaml` 配置文件，增加以下配置
 
@@ -59,7 +59,7 @@ kube-controller-manager  的控制器是一个控制循环，它通过 apiserver
 
  pod 就像本意豆荚，表示一个 pod 里面可能存在一个至多个 docker 容器。docker 是一种特殊的进程，在 linux 里面是伪隔离，使用的仍然是宿主机的操作系统内核，并不像虚拟机虚拟出一个内核。有自己独立挂载的磁盘空间（ `rootfs` ，比如 /bin，/etc，/proc 等），通过 `cgroups` 限制内存和cpu资源。
 
-实际上当我们使用 kubectl 对 kubernetes API 对象做操作时，也就是对 kube-apiserver 发送 rest 请求，这个请求可以是 rest 请求，也可以基于 GRPC 。然后是 kube-scheduler 做对应处理。通过不同的字段，可以水平扩展，也可以滚动更新。
+实际上当我们使用 kubectl 对 kubernetes API 对象做操作时，也就是对 kube-apiserver 发送 rest 请求，这个请求的数据压缩格式可以是 json，也可以是 Protobuf 。然后是 kube-scheduler 做对应处理。通过不同的字段，可以水平扩展，也可以滚动更新。
 
 在调度的时候，需要注意对 **资源边界** 的处理，同时以 Guaranteed > Burstable > BestEffort 的级别设置了调度优先级别。
 
