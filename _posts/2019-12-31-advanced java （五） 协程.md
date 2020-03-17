@@ -610,7 +610,7 @@ Quasar无法处理这种情况，使用Quasar库的时候要避免这种情况�
 
 
 
-需要注意的是，go目前还不支持抢占式调度，在密集CPU时，可能会调度延迟（erlang...）
+go 在之前的版本不支持抢占式调度，在密集CPU时，可能会调度延迟。在 go 1.14 版本稳定了异步抢占式的调度模型。（erlang...）
 
 ### JDK 其他实现
 阿里云（Alibaba JDK）和华为（Huawei JDK ）的在jvm上都有协程的实现。而 Project Loom 是由前 quasar  项目的主要设计开发人员 Ron Pressler 主导的，已经加入Oracle，可以期待官方的实现。
