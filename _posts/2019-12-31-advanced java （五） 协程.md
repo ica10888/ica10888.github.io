@@ -196,7 +196,7 @@ public static String doEat (String o ,Function<String,String> f){
   (current-continuation (+ 4 5)))
 
 (display (f (lambda (x) (* x 7)))) ; displays 63
-;;; (display 3)  (lambda (x) x) 相当于传入一个 t -> t * 7 匿名函数 ,这个匿名函数相当于 continuation，也相当于 callback
+;;;  (lambda (x) (* x 7)) 相当于传入一个 t -> t * 7 匿名函数 ,这个匿名函数相当于 continuation，也相当于 callback
 ;;; 最后一步的返回值是 4 + 5 的计算结果 9 ，和接下来的计算 * 7  ，于是就直接打印 63
 
 
