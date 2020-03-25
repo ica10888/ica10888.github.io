@@ -107,7 +107,7 @@ https://github.com/kubernetes/kubernetes/blob/master/.github/OWNERS
 
 review 正式通过了，代码就合并进去了，一般来说 reviewer 会打出 `/lgtm`
 
-这个时候就是一名项目的 committer 了，如果在社区活跃，能够被提名为 contributor / collaborator
+这个时候就是一名项目的 committer 了，进一步可以成为 contributor / collaborator
 
 顺带说一下 PR 讨论的时候不通过的问题，一般来说是补充测试代码
 
