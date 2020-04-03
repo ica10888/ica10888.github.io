@@ -510,6 +510,8 @@ System.out.println(sum3); //一定是5050，这里便是 monoid 的并发应用
 
 将一组数据放入不可重复的Set里面
 
+排序 `sorted()`
+
 ``` java
 Integer max = Arrays.asList(new Integer[]{32,23,66,12,68,11,22})
     .parallelStream()
