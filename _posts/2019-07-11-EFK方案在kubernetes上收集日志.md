@@ -27,7 +27,7 @@ tags:
 
 ![avatar](http://liangiter.top/2018/10/18/Fluentd%E7%AE%80%E4%BB%8B/fluentd_1.jpg)
 
-- 基于Rust编写的程序，有更好的性能。去除了 java 的 Logstash 中间层，减少了内存使用。使用很少的系统资源，基于内存和文件的缓冲，具有可靠性和高可用性。
+- 基于 Ruby 编写的程序，有更好的性能。去除了 java 的 Logstash 中间层，减少了内存使用。使用很少的系统资源，基于内存和文件的缓冲，具有可靠性和高可用性。
 
 - Fluentd社区活跃，Fluentd 本身就是 CNCF 基金会的顶级项目，可以说是有一个好爹。同时基于 kubernetes 生态，使用起来更加方便。
 
