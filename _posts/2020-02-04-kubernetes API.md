@@ -27,7 +27,7 @@ pod 是启动容器运行时的基本单位， **控制器API** 包括
 
 **存储API** 可以将数据持久化，其中 `Volume` 和 `Persistent Volumes` 是唯一相互绑定的关系，`StorageClass` 限制了在绑定过程中策略，在前面两者声明了相同的 `StorageClass` 时，才能相互绑定。
 
-存储类型是多样化的，有基于内存的 emptyDir ，同理包括 `ConfigMap` 和 `Secret` 。也可以挂载在宿主机上的 HostPath  ，也有云平台支持的网络挂载卷或者如 Ceph 等支持。
+存储类型是多样化的，有基于主机磁盘或内存的 emptyDir ，同理包括 `ConfigMap` 和 `Secret` 。也可以挂载在宿主机上的 HostPath  ，也有云平台支持的网络挂载卷或者如 Ceph 等支持。
 
 **网络API** 包括基本单位 `Service` ，可以负载均衡到对应的多个相同的 pod 上，有 4 种类型
 
