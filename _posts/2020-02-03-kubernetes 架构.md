@@ -44,10 +44,18 @@ kubectl 或者使用 client-go 程序，实际上是对 kube-apiserver 发送 re
 | rest API | kubectl API                                                  |
 | -------- | ------------------------------------------------------------ |
 | GET      | kubectl get （包括单个对象或列表）                           |
-| POST     | 执行某些操作，如 create，cp ，exec ，logs 等（有些操作是长连接） |
+| POST     | kubectl create                                              |
 | PUT      | kubectl apply （更新）                                       |
 | FETCH    | kubectl patch                                                |
 | DELETE   | kubectl delete                                               |
+
+另外，有一些长连接操作，如 cp ，exec ，logs，watch 等。
+
+如 exec，cp 以 websocket 的形式，将请求头设置为 `Sec-WebSocket-Protocol v4.channel.k8s.io ` 和 `Upgrade SPDY/3.1`
+
+logs 和 watch 是一种 HTTP 长链接 的机制，将请求头设置为 `Transfer-Encoding: chunked`
+
+
 
 ### kube-controller-manager 
 
