@@ -25,7 +25,7 @@ tags:
 
 ##### fluentd的优势
 
-![avatar](http://liangiter.top/2018/10/18/Fluentd%E7%AE%80%E4%BB%8B/fluentd_1.jpg)
+![avatar](https://raw.githubusercontent.com/fluent/fluentd-docs-gitbook/1.0/images/fluentd-architecture.png)
 
 - 基于 Ruby 编写的程序，有更好的性能。去除了 java 的 Logstash 中间层，减少了内存使用。使用很少的系统资源，基于内存和文件的缓冲，具有可靠性和高可用性。
 
