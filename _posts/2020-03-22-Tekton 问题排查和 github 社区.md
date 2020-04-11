@@ -25,7 +25,7 @@ tekton-pipelines-controller-d69766ddd-q4zw9   1/1     Running   1          19d
 tekton-pipelines-webhook-64b4998468-wrwq9     1/1     Running   0          4d1h
 ```
 
-在这里 的 `pod` 也就是之前说的 Operator  的概念。dashboard 应该不会用上，应该直接操作 k8s API 就可以了。controller  用来监听上述CRD的事件，执行Tekton的各种CI/CD逻辑，一个webhook用于校验创建的CRD资源。 
+在这里 的 `pod` 也就是之前说的 Operator  的概念。dashboard 应该不会用上，应该直接操作 k8s API 就可以了。controller  用来监听上述CRD的事件，执行Tekton的各种CI/CD逻辑，一个webhook用于触发后创建CRD资源。 
 
 Tekton 中自定义了几种 CRD ，分别可以对应 jenkins 里面的一些对象
 
