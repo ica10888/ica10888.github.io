@@ -147,9 +147,6 @@ public @interface SubAnnotation {
 String s1;
 ```
 
-不过 `@Repeatable` 不能和 `@Retention(RetentionPolicy.RUNTIME)` 一起使用， `@Repeatable` 限定了只能在 `ClASS` 及其级别以下使用。
-
-
 ### 反射
 
 反射是 java 中一个十分强大的特性，运行时可以检测和修改它本身状态或行为，也可以获取元数据信息。可以用来简化代码，或者一些强大的功能，使代码更加灵活。不过反射的运行效率并不高。
