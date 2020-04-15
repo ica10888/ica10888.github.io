@@ -24,7 +24,7 @@ lambda表达式是java8带来的新特性，也是函数式思想的一种体现
 
 函数式有一个很重要的概念叫 `副作用` ，即函数式思维的一种体现。需要了解为什么必须要在 lambda 表达式中捕获异常，甚至是不能有 return 语句。以及高阶函数的使用，以数学的方式表达如何使用默认方法 `andThen`和 `compose`。
 
-JDK 里面有一个很方便的 stream API ，可以帮助程序员延迟处理列表。 （ btw ，其实我不喜欢`stream`这个命名，感觉像是 IO 处理相关的，或许可以像 scala 那样改成 `lazylist`） 如 构建`无限流` ，`mapreduce` ，即映射（map）和归约（reduce）思想。(这里的递归指的是数学意义上的递归，不完全指方法调用本方法，当然函数式语言里面的列表是 cons ) 以及 `call by name`  、`call by vaule` 和 `call by need`的区别。
+JDK 里面有一个很方便的 stream API ，可以帮助程序员延迟处理列表。 （ btw ，其实我不喜欢`stream`这个命名，感觉像是 IO 处理相关的，或许可以像 scala 那样改成 `lazylist`） 如 构建`无限流` ，`mapreduce` ，即映射（map）和归约（reduce）思想 (这里的递归指的是数学意义上的递归，不完全指方法调用本方法，当然函数式语言里面的列表是 cons )。 以及 `call by name`  、`call by vaule` 和 `call by need`的区别。
 
 最后进阶地讲一下什么是柯里化和反柯里化，以及箭头函数和右结合。
 
