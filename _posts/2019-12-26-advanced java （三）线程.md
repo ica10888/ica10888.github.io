@@ -286,6 +286,8 @@ public ForkJoinPool(int parallelism, //并行度，默认为CPU数，最小为1
 
 `ThreadLocalMap`是在`ThreadLocal`中使用内部类，ThreadLocal本身并不存储值，它只是作为一个key来让线程从ThreadLocalMap获取 value，value 放在了当前线程的一个ThreadLocalMap实例中，被线程持有。
 
+一般来说，如果要求 **多个方法之间同一个线程需要访问同一个实例** ，`ThreadLocal` 是适合的。这就是 `ThreadLocal` 的使用场景。
+
 ##### 构造，避免hash碰撞
 
 每个对象有一个 `final int threadLocalHashCode` 。这个变量的值由静态构造，来自一个 `AtomicInteger` 累加上一个魔法值。这个魔法值以尽量避免碰撞为依据。这个变量最终会被用在 `ThreadLocalMap` 的 hash 过程中。
