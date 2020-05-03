@@ -190,21 +190,21 @@ Left 和 right 可以看做是 Either 的两个子类，通过模式匹配来判
 Try 和 Either 类似，用于函数式语言的错误处理，实现组合这个抽象类的是 Future
 
 ``` scala
-    import scala.concurrent.ExecutionContext.Implicits.global
-    def div = (i:Int) => if (i % 2 != 0)  throw new ArithmeticException() else  i / 2
-    def part: PartialFunction[Try[Int], Unit] = { case f: Try[Int] => println(f) }
-    def reco: PartialFunction[Throwable, Unit] = { case f: Throwable => 0}
+import scala.concurrent.ExecutionContext.Implicits.global
+def div = (i:Int) => if (i % 2 != 0)  throw new ArithmeticException() else  i / 2
+def part: PartialFunction[Try[Int], Unit] = { case f: Try[Int] => println(f) }
+def reco: PartialFunction[Throwable, Unit] = { case f: Throwable => 0}
 
-    val producer = Future {12} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
-    Await.result(producer, Duration.Inf)
+val producer = Future {12} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
+Await.result(producer, Duration.Inf)
 //Success(12)
 //Success(6)
 //Success(3)
 //Failure(java.lang.ArithmeticException)	
 //Failure(java.lang.ArithmeticException)
 
-    val producer2 = Future {64} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
-    Await.result(producer2, Duration.Inf)
+val producer2 = Future {64} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
+Await.result(producer2, Duration.Inf)
 //Success(64)
 //Success(32)
 //Success(16)
