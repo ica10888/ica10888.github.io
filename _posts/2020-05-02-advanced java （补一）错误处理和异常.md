@@ -106,20 +106,20 @@ golang语言的错误处理是和多返回值一起来使用的，也就是说�
 
 ``` go
 func main() {
-  _ ,err := division(2,0)
-  if err != nil {
-	  fmt.Println("Err: ",err.Error())
-  }
+    _ ,err := division(2,0)
+    if err != nil {
+        fmt.Println("Err: ",err.Error())
+    }
 }
 
 
 func division(a int ,b int) (result int,err error) {
-	if(b == 0){
-		err = errors.New("division by zero")
-	} else {
-		result = a / b
-	}
-	return
+    if(b == 0){
+        err = errors.New("division by zero")
+    } else {
+        result = a / b
+    }
+    return
 }
 
 //Err:  division by zero
