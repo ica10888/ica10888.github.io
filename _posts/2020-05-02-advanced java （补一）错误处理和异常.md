@@ -193,16 +193,19 @@ Try 和 Either 类似，用于函数式语言的错误处理，实现组合这�
 ``` scala
 import scala.concurrent.ExecutionContext.Implicits.global
 def div = (i:Int) => if (i % 2 != 0)  throw new ArithmeticException() else  i / 2
-def part: PartialFunction[Try[Int], Unit] = { case f: Try[Int] => println(f) }
-def reco: PartialFunction[Throwable, Unit] = { case f: Throwable => 0}
+def part: PartialFunction[Try[Int], Unit] = {case f: Try[Int] => println(f)}
+def fine: PartialFunction[Try[Int], Unit] = {case f: Try[Int] => println(f + "\nI am fine")}
+def reco: PartialFunction[Throwable, Int] = {case f: Throwable => 0}
 
-val producer = Future {12} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
+val producer = Future {12} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco andThen fine
 Await.result(producer, Duration.Inf)
 //Success(12)
 //Success(6)
 //Success(3)
 //Failure(java.lang.ArithmeticException)	
 //Failure(java.lang.ArithmeticException)
+//Success(0)
+//I am fine
 
 val producer2 = Future {64} andThen part map div andThen part map div andThen part map div andThen part map div andThen part recover reco
 Await.result(producer2, Duration.Inf)
