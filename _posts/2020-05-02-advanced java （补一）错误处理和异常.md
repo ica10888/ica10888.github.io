@@ -133,22 +133,22 @@ golang的异常处理是通过内置函数 `panic` 和 `recover` 来处理的，
 
 ``` go
 func main() {
-  division(2,0)
+    division(2,0)
 }
 
 func division(a int ,b int) (result int) {
-	defer func(){
-		if err := recover(); err != nil {
-      result = 0
-			fmt.Println("recover Err: ",err)
-		}
-	}()
-	if(b == 0){
-		panic(errors.New("division by zero"))
-	} else {
-		result = a / b
-	}
-	return
+    defer func(){
+        if err := recover(); err != nil {
+        result = 0
+        fmt.Println("recover Err: ",err)
+        }
+    }()
+    if(b == 0){
+        panic(errors.New("division by zero"))
+    } else {
+        result = a / b
+    }
+    return
 }
 //recover Err:  division by zero
 ```
