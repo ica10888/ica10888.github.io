@@ -186,7 +186,7 @@ sealed abstract class Either[+A, +B] extends Product with Serializable {
 }
 ```
 
-Left 和 right 可以看做是 Either 的两个子类，通过模式匹配来判断结果。一般来说，使用 left 表示异常，right 表示返回的结果 (一语双关，right有正确的含义)。如果没有异常，那么将 right 通过函数处理后返回 right。如果有异常，将返回一个 left 的值，表示失败。如果是 left ，后面的函数将不作处理，依然返回这个 left。
+Left 和 right 可以看做是 Either 的两个子类 (暴论，其实这里还是有区别的，有种数据类型叫 Tagged Union Types)，通过模式匹配来判断结果。一般来说，使用 left 表示异常，right 表示返回的结果 (一语双关，right有正确的含义)。如果没有异常，那么将 right 通过函数处理后返回 right。如果有异常，将返回一个 left 的值，表示失败。如果是 left ，后面的函数将不作处理，依然返回这个 left。
 
 Try 和 Either 类似，用于函数式语言的错误处理，实现组合这个抽象类的是 Future
 
