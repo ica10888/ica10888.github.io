@@ -43,15 +43,15 @@ Tekton 中自定义了几种 CRD ，分别可以对应 jenkins 里面的一些�
 
 经过 google 和 github 的搜索，我发现了有人在一个 `issues` 中提到了类似的问题，和我遇到的问题大致相似。
 
-https://github.com/tektoncd/pipeline/issues/937
+[Tekton Creates PVC unnecessarily if volumes are defined](https://github.com/tektoncd/pipeline/issues/937)
 
 太长不看系列，基本来说就是在第一次关闭这个 `issues` 之后，发现问题并没有解决，又重新打开了这个  `issues`  。然后在一个新的 `issues` 里进行了讨论
 
-https://github.com/tektoncd/pipeline/issues/1673
+[Pipeline Resources Redesign](https://github.com/tektoncd/pipeline/issues/1673)
 
 之后在这个 PR 提交并修复了这个问题
 
-https://github.com/tektoncd/pipeline/pull/1545
+[Only make a PVC for a PipelineRun if we need to](https://github.com/tektoncd/pipeline/pull/1545)
 
 如果看相关提交，可以看见是加入了一个判断参数，修复了这个问题
 
@@ -78,13 +78,11 @@ https://kubernetes.io/zh/docs/contribute/start/
 
 需要注意的是 **礼貌沟通和认真阐述问题是一切贡献的前提，特别是这种国际化的项目，一定要用英语交流**  （即使是国人的项目，之前我提 `issues` ，也是可以看出对方是中国人，但是也用英语交流）
 
-这个时候，应当提出一个 `issues` , 在填写的时候按照原本的格式，一般是几个问题，如实填写就行了。然后社区人员会反馈，一般来说就是有没有人遇到过相同的问题，或者同意 PR
+这个时候，应当提出一个 `issues` , 在填写的时候按照原本的格式，一般是几个问题，如实填写就行了。然后社区人员会反馈，一般来说就是有没有人遇到过相同的问题，或者同意这样修改
 
 这个时候就可以提交 PR 了
 
 提交之后，一般会再讨论一下，然后就是 review 过程了
-
-如果没有人注意到 PR , 像 kubernetes 这种使用了 bot 的，可以用 `/cc` 来召唤
 
 这里写一下常用的交流命令
 
@@ -117,10 +115,16 @@ review 正式通过了，代码就合并进去了，一般来说 reviewer 会打
 git rebase -i HEAD~2
 ```
 
-将两次 commit 合并，这里会打开一个 vi 界面
+将两次 commit 合并，这里会打开一个 vi 界面，除了第一个 pick ,将后面的 pick 改成 squash , 合并2个以上的 commit 同理
+
+``` shell
+pick 3ca6ec3   'commit desc...'
+
+pick 1b40566   'commit desc...'
+```
 
 ``` shell
 git push -f
 ```
 
-然后在原有的 PR 上提过去就行了，没必要开一个新 PR
+push 后，新的提交就在原有的 PR 上 force push 过去了，没必要开一个新 PR
