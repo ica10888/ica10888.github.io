@@ -115,13 +115,15 @@ review 正式通过了，代码就合并进去了，一般来说 reviewer 会打
 git rebase -i HEAD~2
 ```
 
-将两次 commit 合并，这里会打开一个 vi 界面，除了第一个 pick ,将后面的 pick 改成 squash , 合并2个以上的 commit 同理
+将两次 commit 合并，这里会打开一个 vi 界面
 
 ``` shell
 pick 3ca6ec3   'commit desc...'
 
 pick 1b40566   'commit desc...'
 ```
+
+除了第一个 pick ,将后面的 pick 改成 squash , 合并2个以上的 commit 同理
 
 ``` shell
 git push -f
