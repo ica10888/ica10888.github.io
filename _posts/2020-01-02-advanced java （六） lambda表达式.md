@@ -108,10 +108,10 @@ System.out.println(arr[0]); // 500
 我们来看看 java 字节码
 
 ``` java
-Integer num = 114514;
+Integer code = 404;
 Supplier supplier = () -> {
-  Integer var0 = num;
-  return "stench numbers: " + var0;
+  Integer var0 = code;
+  return "error code: " + var0;
 };
 ```
 
