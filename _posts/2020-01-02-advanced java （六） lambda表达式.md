@@ -80,27 +80,27 @@ FutureTask task = new FutureTask<>(() -> "I am task"); //这里没有对() -> "I
 
 ``` java
 //这里num被final 修饰了，无法对其进行修改
-Integer num = 114514;
-Supplier supplier = () -> "stench numbers: " + num; 
+Integer code = 404;
+Supplier supplier = () -> "error code: " + code;
 
 //当然可以使用一个引用类型包装，虽然这个引用类型也会是不可变的，但是我们可以改变他成员变量的值
-class Box { Integer num;}
-Box o = new Box(); o.num = 114514;
-Supplier supplier = () -> "stench numbers: " + o.num;
-o.num = 1919810;
-System.out.println(o.num); // 1919810
+class Box { Integer code;}
+Box o = new Box(); o.code = 404;
+Supplier supplier = () -> "error code: " + o.code;
+o.code = 500;
+System.out.println(o.code); // 500
 
 //或许使用一个线程安全的引用类型是更好的选择
-AtomicInteger atom = new AtomicInteger(114514);
-Supplier supplier = () -> "stench numbers: " + atom.get();
-atom.set(1919810);
-System.out.println(atom.get()); // 1919810
+AtomicInteger atom = new AtomicInteger(404);
+Supplier supplier = () -> "error code: " + atom.get();
+atom.set(500);
+System.out.println(atom.get()); // 500
 
 //当然，使用数组也没有问题的，这也是在java文档里面推荐的
-Integer[] arr = new Integer[]{114514};
-Supplier supplier = () -> "stench numbers: " + arr[0];
-arr[0] = 1919810;
-System.out.println(arr[0]); // 1919810
+Integer[] arr = new Integer[]{404};
+Supplier supplier = () -> "error code: " + arr[0];
+arr[0] = 500;
+System.out.println(arr[0]); // 500
 ```
 
 而不可变对象有什么好处呢，其实大多数函数式语言都使用不可变变量来避免副作用，如 scala 的 `val` 。但是这里，java是有其他的考虑，可以说是殊途同归。
