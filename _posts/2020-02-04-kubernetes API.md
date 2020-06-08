@@ -130,6 +130,41 @@ volumeBindingMode: Immediate
 
 这是一个 nfs 的 StorageClass ，能够使用  `storageClassName: fast-disks` 声明的 Volume 
 
+这里比较特殊，pv 是由 nfs-provisioner 提供的。PV 有多种方式，还有 local volumes 、glusterFS 、ceph 等等，有些可以直接声明 PV
+ 
+一般而言是通过声明相同字段的 storageClassName 来区分绑定 PVC 和 PV
+ 
+ ``` yaml
+ kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: local-claim
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi 
+  storageClassName: local-storage
+  
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-pv
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 15Gi
+  local:
+    fsType: ext4
+    path: /data/some-path
+  storageClassName: local-storage
+
+```
+
 ### 网络API
 
 ##### Service
