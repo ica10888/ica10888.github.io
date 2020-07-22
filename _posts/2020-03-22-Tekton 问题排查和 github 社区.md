@@ -74,13 +74,9 @@ https://kubernetes.io/zh/docs/contribute/start/
 - 不仅仅是 PR ，修复文档，提出新功能的 `issues` ，帮助别人解决问题也是一种贡献
 - 提出 `issues` 或者通过 `pull request` 提交代码
 
-事实上，一般来说，如果发现了大型项目的代码存在 bug 或问题，应该先 fork 一份到自己仓库，然后 commit 提交代码，给原项目提出 PR
+事实上，一般来说，如果发现了大型项目的代码存在 bug 或问题，应该先 fork 一份到自己仓库，拉出一个专门的分支，或者直接用 master 也行 ，然后 commit 提交代码，给原项目提出 PR
 
 需要注意的是 **礼貌沟通和认真阐述问题是一切贡献的前提，特别是这种国际化的项目，一定要用英语交流**  （即使是国人的项目，之前我提 `issues` ，也是可以看出对方是中国人，但是也用英语交流）
-
-这个时候，应当提出一个 `issues` , 在填写的时候按照原本的格式，一般是几个问题，如实填写就行了。然后社区人员会反馈，一般来说就是有没有人遇到过相同的问题，或者同意这样修改
-
-这个时候就可以提交 PR 了
 
 提交之后，一般会再讨论一下，然后就是 review 过程了
 
@@ -105,11 +101,7 @@ https://github.com/kubernetes/kubernetes/blob/master/.github/OWNERS
 
 review 正式通过了，代码就合并进去了，一般来说 reviewer 会打出 `/lgtm`
 
-这个时候就是一名项目的 committer 了，进一步可以成为 contributor / collaborator
-
-顺带说一下 PR 讨论的时候不通过的问题，一般来说是补充测试代码
-
-这个时候需要保持仍然是一个 commit 提交，但是补充代码需要再做一次 commit 提交，需要将这两次 commit 合并，需要使用 git 命令
+如果合并代码经过讨论有需要修改的地方，这个时候可以需要保持仍然是一个 commit 提交，但是补充代码需要再做一次 commit 提交，需要将这两次 commit 合并，需要使用 git 命令
 
 ``` shell
 git rebase -i HEAD~2
