@@ -159,16 +159,16 @@ System.out.println(s1 == s2);
 
 ##### 内存参数
 
-在分配内存的时候，如果通过 CAS 操作来解决线程冲突的问题是可以的，当然也可以使用 TLAB 为每个线程分配一个，然后使用 TLAB 进行线程间的同步。通过 java 参数  `-XX:-UseTLAB` 来设置。 
+在分配内存的时候，如果通过 CAS 操作来解决线程冲突的问题是可以的，当然也可以使用 TLAB 为每个线程分配一个，然后使用 TLAB 进行线程间的同步。通过 java 参数 `-XX:-UseTLAB` 来设置。 
 
-如果有大量线程，而栈的深度不深（一般而言就是没有使用递归方法），可以将每个线程堆栈大小设置小一些，默认是 1M，可以设置成 ` -Xss256k ` 。
+如果有大量线程，而栈的深度不深（一般而言就是没有使用递归方法），可以将每个线程堆栈大小设置小一些，默认是 1M，可以设置成 `-Xss256k` 。
 
-同样，可以通过 `-Xms<size>`   设置初始 Java 堆大小 ，  `-Xmx<size>` 设置最大 Java 堆大小，需要注意的是需要保留内存一些内存给非堆空间。假如在 linux 里面如果还剩下 1g 内存，就不能将堆设置成 1g，不然 java 程序会内存溢出而退出。
+同样，可以通过 `-Xms<size>` 设置初始 Java 堆大小，`-Xmx<size>` 设置最大 Java 堆大小，需要注意的是需要保留内存一些内存给非堆空间。假如在 linux 里面如果还剩下 1g 内存，就不能将堆设置成 1g，不然 java 程序会内存溢出而退出。
 
-元空间是没有限制的，可以通过 `-XX:MetaspaceSize=<size>` 设置元空间初始大小，`-XX:MaxMetaspaceSize=<size>`  设置元空间最大值。
+元空间是没有限制的，可以通过 `-XX:MetaspaceSize=<size>` 设置元空间初始大小， `-XX:MaxMetaspaceSize=<size>` 设置元空间最大值。
 
-可以通过  `-XX:SurvivorRatio=n` 设置Eden区与两个Survivor区的比值 ，默认是 8 : 1+1。
+可以通过 `-XX:SurvivorRatio=n` 设置 Eden 区与两个 Survivor 区的比值 ，默认是 8 : 1+1。
 
-而在 docker 容器中，可以通过 `-XX:MaxRAMPercentage=75.0`  ，这是在 java8u191 加入的参数，针对的是能够感知到 `cgroup` 对内存的限制。相当于限制了堆内存的占比是 75%，需要留一部分给非堆内存。同理还有参数 ` InitialRAMPercentage` 和 `MinRAMPercentage` 。
+而在 docker 容器中，可以通过 `-XX:MaxRAMPercentage=75.0`  ，这是在 java8u191 加入的参数，针对的是能够感知到 `cgroup` 对内存的限制。相当于限制了堆内存的占比是 75% ，需要留一部分给非堆内存。同理还有参数 `InitialRAMPercentage` 和 `MinRAMPercentage` 。
 
-要注意的是使用 Unsafe 方法或使用 NIO 的 `DirectByteBuffer`  ，有可能会导致直接内存的 OOM 。
+要注意的是使用 Unsafe 方法或使用 NIO 的 `DirectByteBuffer`，有可能会导致直接内存的 OOM 。
