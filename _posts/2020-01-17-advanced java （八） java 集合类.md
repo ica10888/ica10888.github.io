@@ -25,7 +25,7 @@ java集合类主要分为两种类型，一种是不线程安全的，在 `java.
 
 一个是实现 `List` 接口的， **链表就是线性表的链式存储结构**  。 有 `ArrayLsit` ，储存在一个数组里面的单向链表。有 `LinkedList` ，一个具有双向链表的链表。继承 `Vector` 的 `Stack` ,一个限定仅在表尾进行插入和删除操作的栈实现。
 
-一个是实现 Queue 接口的， **队列就是一个先入先出（FIFO）的数据结构** 。有 `PriorityQueue`，总是获取权值最小的元素，带优先级的队列。有 `Deque`  ，双向队列的实现。 有 `ArrayBlockingQueue ` 和 `LinkedBlockingQueue`  ，都是有界队列。有 `DelayQueue ` ,用于时间调度。有 ` SynchronousQueue` ，简单聚集（rendezvous）机制。
+一个是实现 Queue 接口的， **队列就是一个先入先出（FIFO）的数据结构** 。有 `PriorityQueue`，总是获取权值最小的元素，带优先级的队列。有 `Deque`  ，双向队列的实现。 有 `ArrayBlockingQueue ` 和 `LinkedBlockingQueue`  ，都是有界队列。有 `DelayQueue ` ,用于时间调度。有 `SynchronousQueue` ，简单聚集（rendezvous）机制。
 
 一个是 `Set` 接口，**不包含重复元素,无序的元素的集合**  。 有 `HashSet` ，无序并用hash保证不重复。有 `TreeSet` ，可用来内部元素排序，是有序的。
 
