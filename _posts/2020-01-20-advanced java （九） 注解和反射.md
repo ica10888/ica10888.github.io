@@ -222,24 +222,24 @@ System.out.println(aClass.getFields().length);
 ```
 modifier 表示该字段的修饰符，规则如下
 
-PUBLIC: 1
-PRIVATE: 2
-PROTECTED: 4
-STATIC: 8
-FINAL: 16
-SYNCHRONIZED: 32
-VOLATILE: 64
-TRANSIENT: 128
-NATIVE: 256
-INTERFACE: 512
-ABSTRACT: 1024
-STRICT: 2048
+- PUBLIC: 1
+- PRIVATE: 2
+- PROTECTED: 4
+- STATIC: 8
+- FINAL: 16
+- SYNCHRONIZED: 32
+- VOLATILE: 64
+- TRANSIENT: 128
+- NATIVE: 256
+- INTERFACE: 512
+- ABSTRACT: 1024
+- STRICT: 2048
 
 当然 强大的 java 反射机制甚至可以调用方法，在某些场景下，可以绕开 java 的限制，调用私有方法
 
 其中 `getMethods()` 是获取本类和父类，父接口的所有 `public` 修饰的方法，而 `getDeclaredMethods()` 获取本类中 `private` 、 `protected` 、默认以及 `public` 修饰的方法。
 
-需要注意的是，如果要调用私有方法，需要修改 showPrivate 权限，不然会抛出 ` IllegalAccessException: Class hello can not access a member of class Apple with modifiers "private" ` 的异常
+需要注意的是，如果要调用私有方法，需要修改 showPrivate 权限，不然会抛出 `IllegalAccessException: Class hello can not access a member of class Apple with modifiers "private"` 的异常
 
 ``` java
 Class aClass = Apple.class;
