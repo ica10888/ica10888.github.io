@@ -3,6 +3,7 @@ layout:     post
 title:      使用operator-sdk实现kubernetes operator 
 subtitle:   使用operator-sdk实现kubernetes operator 
 date:       2020-07-30
+cover:      'https://raw.githubusercontent.com/ica10888/banner/master/131592233124740348.jpg'
 author:     ica10888
 catalog: true
 tags:
