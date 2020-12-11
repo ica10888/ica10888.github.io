@@ -184,7 +184,7 @@ CompletableFuture 可以帮助我们写出高效、异步、非阻塞的并行�
 
 | 策略                  | 说明                                                         |
 | --------------------- | ------------------------------------------------------------ |
-| AbortPolicy，默认策略 | 提交数超过 ` workQueue.size() + maximumPoolSize` ， 就会抛出异常 `RejectedExecutionException` 。 |
+| AbortPolicy，默认策略 | 提交数超过  `workQueue.size() + maximumPoolSize` ， 就会抛出异常  `RejectedExecutionException` 。 |
 | CallerRunsPolicy      | 直接在 execute 方法的调用线程中运行被拒绝的任务              |
 | DiscardPolicy         | 直接丢弃任务                                                 |
 | DiscardOldestPolicy   | 丢弃队列中等待时间最长的任务，并执行当前提交的任务           |
