@@ -319,7 +319,7 @@ subjects:
 
 `RoleBinding` 中一个角色绑定多个被作用者。其中也限定了只能在自己的命名空间下起作用。而 `ClusterRoleBinding` 可以对不限定命名空间的对象使用。
 
-如果 subjects 的`kind` 是 ` Group `  ，通过 ` system:serviceaccounts:<Namespace名字> ` 可以实现 **用户组** 的绑定。
+如果 subjects 的 `kind` 是 `Group`  ，通过 `system:serviceaccounts:<Namespace名字>` 可以实现 **用户组** 的绑定。
 
 ServiceAccount
 
