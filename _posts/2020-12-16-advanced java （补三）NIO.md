@@ -12,7 +12,7 @@ tags:
 
 # Java NIO
 
-Java 在  jdk1.4 版本加入了  `java.nio` 包，提供了一系列改进的输入/输出处理的新特性，被统称为NIO( 即 New I/O ) 。其中 nio 将 io处理抽象成 Buffer 缓冲区，Channel 管道 和 Selector选择器 三个概念。三者组成了这个核心的API。Buffer 表示缓存的数据，nio模型都是基于Buffer 读写数据。Channel 用于表示各种类型 io 的数据读写，将数据读入或写在 Buffer 上。Selector 用于响应处理 Channel 的事件，其中多个 Channel  可以注册在同一个 Selector 上。然后就是 Buffer  的 Scatter / Gather 的概念。以及用于各种 Channel  ，包括用于文件IO的 `FileChannel` ，网络IO 包括 TCP 的 `ServerSocketChannel ` ,UDP 的 `DataGramChannel` ，以及异步文件通道 `AsynchronousFileChannel` 。最后就是关于管道，路径和文件的帮助类。
+Java 在  jdk1.4 版本加入了  `java.nio` 包，提供了一系列改进的输入/输出处理的新特性，被统称为NIO( 即 New I/O ) 。其中 nio 将IO处理抽象成 Buffer 缓冲区，Channel 管道 和 Selector选择器 三个概念。三者组成了这个核心的API。Buffer 表示缓存的数据，nio模型都是基于Buffer 读写数据。Channel 用于表示各种类型 IO 的数据读写，将数据读入或写在 Buffer 上。Selector 用于响应处理 Channel 的事件，其中多个 Channel  可以注册在同一个 Selector 上。然后就是 Buffer  的 Scatter / Gather 的概念。以及用于各种 Channel  ，包括用于文件IO的 `FileChannel` ，网络IO 包括 TCP 的 `ServerSocketChannel` ,UDP 的 `DataGramChannel` ，以及异步文件通道 `AsynchronousFileChannel` 。最后就是关于管道，路径和文件的帮助类。
 
 ### 核心部分
 
