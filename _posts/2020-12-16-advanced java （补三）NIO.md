@@ -12,7 +12,7 @@ tags:
 
 # Java NIO
 
-Java 在  jdk1.4 版本加入了  `java.nio` 包，提供了一系列改进的输入/输出处理的新特性，被统称为NIO( 即 New I/O ) 。
+Java 在  jdk1.4 版本加入了  `java.nio` 包，提供了一系列改进的输入/输出处理的新特性，被统称为NIO( 即 New I/O ) 。其中 nio 将 io处理抽象成 Buffer 缓冲区，Channel 管道 和 Selector选择器 三个概念。三者组成了这个核心的API。Buffer 表示缓存的数据，nio模型都是基于Buffer 读写数据。Channel 用于表示各种类型 io 的数据读写，将数据读入或写在 Buffer 上。Selector 用于响应处理 Channel 的事件，其中多个 Channel  可以注册在同一个 Selector 上。然后就是 Buffer  的 Scatter / Gather 的概念。以及用于各种 Channel  ，包括用于文件IO的 `FileChannel` ，网络IO 包括 TCP 的 `ServerSocketChannel ` ,UDP 的 `DataGramChannel` ，以及异步文件通道 `AsynchronousFileChannel` 。最后就是关于管道，路径和文件的帮助类。
 
 ### 核心部分
 
@@ -21,6 +21,33 @@ NIO主要有三个核心部分组成：
 - Buffer 缓冲区：一般来说，对于操作系统，如网卡的写操作过程如下：1. 将数据从网卡拷贝到系统空间；2.将数据从系统空间拷贝到用户空间（如果使用DirectByteBuffer，可以减少一次系统空间到用户空间的拷贝）。然后程序从缓冲区中读取数据。Buffer 的创建和销毁的成本很高，不宜维护，通常会用内存池来提高性能。
 - Channel 管道：表示到实体如硬件设备、文件、网络套接字或可以执行一个或多个不同I/O操作的程序组件的开放的连接。从 Buffer 中读取数据或向 Buffer 中写入数据。
 - Selector选择器：Selector 能够检测多个注册的  Channel 上是否有事件发生，如果有事件发生，便获取事件然后针对每个事件进行相应的响应处理。
+
+### Scatter / Gather
+
+Scattering read指的是从通道读取的操作能把数据写入多个buffer
+
+``` java
+ByteBuffer header = ByteBuffer.allocate(128);
+ByteBuffer body   = ByteBuffer.allocate(1024);
+
+ByteBuffer[] bufferArray = { header, body };
+
+channel.read(bufferArray);
+```
+
+gathering write 表示的是从多个buffer把数据写入到一个channel中
+
+``` java
+ByteBuffer header = ByteBuffer.allocate(128);
+ByteBuffer body   = ByteBuffer.allocate(1024);
+
+//write data into buffers
+
+ByteBuffer[] bufferArray = { header, body };
+
+channel.write(bufferArray);
+```
+
 
 ### FileChannel （文件IO）
 
@@ -102,8 +129,6 @@ try {
 }
 ```
 
-同时 nio 提供了`java.nio.flie` 类 ，来更方便实现文件路径的操作和对于文件的创建、移动、删除、获取信息等操作。
-
 ### ServerSocketChannel （网络IO，TCP）
 
 下面是一个模拟HTTP请求，访问 `http://127.0.0.1:18081/`  , 返回 `Hello World` 的例子
@@ -173,8 +198,6 @@ channel.connect(new InetSocketAddress(80));
 
 ### AsynchronousFileChannel （异步文件通道）
 
-
-
 ##### 通过Future读取数据
 
 ``` java
@@ -210,5 +233,133 @@ System.out.println("Write done");
 
 同时也可以通过 `CompletionHandler` ，重写方法来读取和写数据
 
+### 管道，路径和文件帮助类
 
+##### Pipe管道
 
+管道指的是两个线程间单向传输数据的连接。
+
+``` java
+// 创建管道
+ByteBuffer buf = ByteBuffer.allocate(48);
+Pipe pipe = Pipe.open();
+//写入数据
+Pipe.SinkChannel sinkChannel = pipe.sink();
+String newData = "New String to write to file...";
+
+buf.clear();
+buf.put(newData.getBytes());
+
+buf.flip();
+
+while(buf.hasRemaining()) {
+    sinkChannel.write(buf);
+}
+
+//读取数据
+buf.clear();
+Pipe.SourceChannel sourceChannel = pipe.source();
+int bytesRead = sourceChannel.read(buf);
+System.out.println(new String(buf.array()));
+```
+
+##### 路径
+
+ nio 提供了`java.nio.file.Paths` 辅助类，用于建立绝对路径和相对路径
+
+``` java
+Path absolutePath = Paths.get("/tmp/test.txt");
+Path relativePath = Paths.get("/tmp","test.txt");
+```
+
+##### 文件
+
+同时 nio 提供了`java.nio.flie.Files` 类 ，来更方便实现文件路径的操作和对于文件的创建、移动、删除、获取信息等操作。
+
+判断文件是否存在
+
+``` java
+Path path = Paths.get("data/logging.properties");
+
+boolean pathExists =
+        Files.exists(path,
+            new LinkOption[]{ LinkOption.NOFOLLOW_LINKS});
+```
+
+创建目录
+
+``` java
+Path path = Paths.get("/tmp/subdir");
+
+try {
+    Path newDir = Files.createDirectory(path);
+} catch(FileAlreadyExistsException  e){
+    // the directory already exists.
+} catch (IOException e) {
+    //something else went wrong
+    e.printStackTrace();
+}
+```
+
+复制文件
+
+``` java
+Path sourcePath      = Paths.get("data/logging.properties");
+Path destinationPath = Paths.get("data/logging-copy.properties");
+
+try {
+    Files.copy(sourcePath, destinationPath);
+} catch(FileAlreadyExistsException e) {
+    //destination file already exists
+} catch (IOException e) {
+    //something else went wrong
+    e.printStackTrace();
+}
+```
+
+覆盖文件
+
+``` java
+Path sourcePath      = Paths.get("data/logging.properties");
+Path destinationPath = Paths.get("data/logging-copy.properties");
+
+try {
+    Files.copy(sourcePath, destinationPath,
+            StandardCopyOption.REPLACE_EXISTING);
+} catch(FileAlreadyExistsException e) {
+    //destination file already exists
+} catch (IOException e) {
+    //something else went wrong
+    e.printStackTrace();
+}
+```
+
+移动文件
+
+``` java
+Path sourcePath      = Paths.get("data/logging-copy.properties");
+Path destinationPath = Paths.get("data/subdir/logging-moved.properties");
+
+try {
+    Files.move(sourcePath, destinationPath,
+            StandardCopyOption.REPLACE_EXISTING);
+} catch (IOException e) {
+    //moving file failed.
+    e.printStackTrace();
+}
+```
+
+删除文件
+
+``` java
+Path path = Paths.get("data/subdir/logging-moved.properties");
+
+try {
+    Files.delete(path);
+} catch (IOException e) {
+    //deleting file failed
+    e.printStackTrace();
+}
+```
+
+以及可以通过 `Files.walkFileTree()` 遍历目录。
