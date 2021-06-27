@@ -41,6 +41,29 @@ operator-sdk generated ... # 通过 code-generated 生成一些如 crd yaml 和 
 
 然后就是 list & watch 机制。kubelet 的 podsync ， kube-scheduler 的 informer （不太准确，事实上 informer  也可以说是属于 client-go 的）都有使用这种机制。当然最简单的是使用 client-go 的 clientSet , 其实就是调用  kube-apiserver 的 URL 请求，如果去看对应就是一个 builder 设计模式拼接的 URL ，然后如 informer 的一个核心构造体 cache.ListWatch 也是这两个方法。
 
+新版本的 operator-sdk 使用了 olm 管理，命令如下
+
+``` shell
+/root/data/git/operator/go/src/memcached-operator/bin/kustomize build config/crd | kubectl apply -f -
+customresourcedefinition.apiextensions.k8s.io/memcacheds.cache.example.com created
+
+mkdir demo-operator
+cd demo-operator
+operator-sdk init --domain <domain> --repo <domain>/demo/demo-operator --skip-go-version-check
+operator-sdk create api --group <group> --version v1 --kind <Kind> --resource --controller
+
+#修改类型，增加自己需要的字段
+vim api/v1/<Kind>_types.go
+
+#直接在当前环境把crd 创建好，如果已经有了，会更新
+make install
+
+#并且会生产对应的crd
+vim config/crd/bases/<Kind>.<domain>_<Kind>s.yaml
+
+```
+
+
 ### 参考
 
 [Operator-SDK简介- Operator](https://www.operator.org.cn/bian-xie-operator)
