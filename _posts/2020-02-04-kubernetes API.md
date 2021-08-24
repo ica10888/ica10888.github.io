@@ -381,7 +381,7 @@ spec:
 
 当然本身 新的 API 是没有意义的，一般而言会通过 RBAC 一起使用。通过部署一些 `pod` ，轮询去访问 kubernetes 集群里面 新定义的 CRD，通过字段来执行不同的操作。这个 `pod` 一般被称作  Operator  。
 
-举个例子来说，我们经常使用的 `kubectl top `  指令也就是使用的  Operator  来执行的（虽然这里有一点小小的区别，`v1beta1.metrics.k8s.io`  使用的不是 CRD 而是 `APIService` ， 也是一种资源对象，可以使用 `kubectl get apiservice` 来查看 ）。
+举个例子来说，我们经常使用的 `kubectl top `  指令也就是使用的  Operator  来执行的（虽然这里有一点小小的区别，`v1beta1.metrics.k8s.io`  使用的不是 CRD 而是 k8s 本身的资源对象，可以使用 `kubectl get apiservice` 来查看 ）。
 
 ``` shell
 [root@node1 ~]# kubectl get pod -n kube-system  | grep metrics-server
