@@ -298,7 +298,7 @@ data:
 <configuration scan="true">
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
-    <springProperty scope="context" name="logPath" source="hanclouds.logging.path" defaultValue="/app/log"/>
+    <springProperty scope="context" name="logPath" source="com.logging.path" defaultValue="/app/log"/>
     <!-- 文件日志位置 -->
     <!--<property name="LOG_FILE" value="${logPath}/${springAppName}"/>-->
 
