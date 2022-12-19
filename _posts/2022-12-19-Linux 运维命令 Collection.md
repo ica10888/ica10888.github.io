@@ -183,6 +183,7 @@ Swap:            0B          0B          0B
 | hdparm              | 显示和设置磁盘参数 | |
 
 模拟命令
+
 | 命令 | 使用方式                            | 常用参数                                                     |
 | ---- | ----------------------------------- | ------------------------------------------------------------ |
 | fio  | 文件系统和磁盘 I/O 性能基准测试工具 | 随机读fio -name=randread -direct=1 -iodepth=64 -rw=randread -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=/dev/sdb<br/>随机写fio -name=randwrite -direct=1 -iodepth=64 -rw=randwrite -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=/dev/sdb<br/>顺序读fio -name=read -direct=1 -iodepth=64 -rw=read -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=/dev/sdb<br/>顺序写fio -name=write -direct=1 -iodepth=64 -rw=write -ioengine=libaio -bs=4k -size=1G -numjobs=1 -runtime=1000 -group_reporting -filename=/dev/sdb |
