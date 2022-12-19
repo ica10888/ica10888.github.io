@@ -73,6 +73,8 @@ tags:
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | stress   | 模拟一个 cpu 使用 100% （usr）<br/>模拟 I/O 压力（iowait）<br/>模拟8 个进程争抢 cpu （wait） | -c 1 --timeout 600<br/>-i 1 --timeout 600<br/>-c 8 --timeout 600 |
 | sysbench | 以10个线程运行5分钟的基准测试，模拟多线程切换                | --threads=10 --max-time=300 threads run                      |
+
+
 ``` bash
 uptime
 load average: 0.63, 0.83, 0.88 # 依次则是过去 1 分钟、5 分钟、15 分钟的平均负载
@@ -144,6 +146,7 @@ KiB Swap:        0 total,        0 free,        0 used.   574748 avail Mem
 | echo 3 > /proc/sys/vm/drop_caches | 清理缓存           |                                            |
 | dd                                | 运行dd命令读取文件 | if=/dev/sda1 of=/dev/null bs=1M count=1024 |
 
+
 ``` bash
 free -h
               total        used        free      shared  buff/cache   available
@@ -214,6 +217,7 @@ tmpfs            93M     0   93M   0% /run/user/0
 | tcping      |                                                              |                                                              |
 | nsenter     |                                                              | --target $PID --net -- lsof -i                               |
 
+
 模拟命令
 
 | 命令    | 使用方式                                       | 常用参数                              |
@@ -224,8 +228,10 @@ tmpfs            93M     0   93M   0% /run/user/0
 | netperf | 时延网络测试工具                               |                                       |
 | iperf3  | 重传包网络测试工具                             |                                       |
 
+
 ``` bash
 ```
+
 ##### 其他-程序分析
 
 查询命令
