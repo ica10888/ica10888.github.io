@@ -21,7 +21,7 @@ terraform 是声明式语言（Declarative Language），首先需要配置文�
 
  main.tf
 
-``` json
+``` shell
 terraform {
   required_providers {
     tencentcloud = {
@@ -39,7 +39,7 @@ provider "tencentcloud" {
 
  tke.tf
 
-```json
+```shell
 # 创建 TKE 集群
 resource "tencentcloud_kubernetes_cluster" "tke_test" {
   vpc_id                                     = "vpc-4s39are5"
