@@ -218,6 +218,10 @@ app.synth()
 cdktf deploy
 ```
 
+### API Reference for Python
+
+https://developer.hashicorp.com/terraform/cdktf/api-reference/python
+
 ### 参考文档
 
 [introduction-terraform](https://lonegunmanb.github.io/introduction-terraform/)
