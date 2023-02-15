@@ -220,6 +220,8 @@ cdktf deploy
 
 ### API Reference for Python
 
+terraform 的 API接口，可以用来自己的代码实现
+
 https://developer.hashicorp.com/terraform/cdktf/api-reference/python
 
 ### 参考文档
