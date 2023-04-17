@@ -272,6 +272,7 @@ tcp        0      0 172.21.142.66:49456     47.246.12.254:443       TIME_WAIT   
 | strace   | 分析函数调用                                                 | -p 进程号 <br/>-f -p 9085 -T -tt -e fdatasync                |
 | lsof     | List Open Files的缩写                                        | -p 1234 列出进程id为1234的进程所打开的文件<br/>-i:8080 查看8080端口的程序进程号<br/>-c php-fpm 查看php-fpm进程现在打开的文件<br/>+D /tmp 显示所有在/tmp目录下打开的文件进程<br/>-d 4 显示FD为4的进程<br/> -l 4 显示ipv4协议相关的进程情况<br/> -u^root 显示不是root账户的进程的文件使用 情况<br/>-i -U 查看所有打开的端口和UNIX domain文件<br/>/somedir/ 查看谁在使用文件系统<br/> |
 | dmesg    | 显示linux信息<br/>注：包括一些内核异常信息的日志，有时候排查问题找不到思路的时候，这个指令有奇效 |                                                              |
+| journalctl    | 显示自启动的服务日志 |        -xe -u kubelet                                                      |
 
 模拟命令
 
