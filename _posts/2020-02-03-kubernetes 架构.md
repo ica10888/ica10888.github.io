@@ -77,7 +77,7 @@ kube-controller-manager  的控制器是一个控制循环，它通过 apiserver
 - 放入一个控制循环 （Informer Path）的先进先出优先级队列（ PriorityQueue ）里面，Informer 去通知并更新调度器缓存，cache 的目的是提高调度算法的执行效率。（这里的控制循环有点类似于 nodejs 的 eventloop 模型，目的是解耦）
 - 队列的数据将进入负责 Pod 调度的主循环（Scheduling Path）。队列出栈，并从 cache 中获取相关信息。进入三个阶段
   - Predicates 阶段将分析 node 亲和性，污点，资源，挂载等，判断哪些 node 可用
-  - Priorities 阶段给可用 node 打分，0到10 ，调度给得分最高的 Node
+  - Priorities 阶段给可用 node 打分，0到100 ，调度给得分最高的 Node
   - Bind 阶段给 pod 加上 nodeName 字段，当然这里乐观地只给 cache 加上了，还没有到 etcd，直到调度成功。
 
 可以通过 Go plugin 机制 扩展调度器。
