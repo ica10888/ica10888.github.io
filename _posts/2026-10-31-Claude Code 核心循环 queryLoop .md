@@ -17,6 +17,7 @@ queryLoop方法是 Claude Code 的核心循环，其代码经历多次迭代，�
 - 4 级压缩管道（Compaction Pipeline），用于上下文的压缩和保存上下文
 
 ### 7+ 个 continue 站点
+```text
 Continue Site 1: Proactive Compaction
 触发: token 超过阈值
 动作: autocompact → 新消息 → continue
@@ -47,10 +48,10 @@ Continue Site 7: Tool Execution
 
 return Terminal — 唯一的退出点
 条件: 无工具调用 + Stop Hook 不阻止
-
+```
 
 ### 4 级压缩管道
-
+```text
 Level 1: Snip
 历史截断成本: 极低 | 延迟: ~0ms
 
@@ -71,7 +72,7 @@ Level 3: Context-Collapse
 Level 4: Autocompact                   跳过 Autocompact
 LLM 全对话摘要                          保留粒
 成本: 高 | 延迟: ~2s
-
+```
 
 
 
